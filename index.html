@@ -12,6 +12,7 @@
             background-color: #f4f4f4;
             color: #333;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
@@ -20,12 +21,26 @@
         }
         h1 {
             font-size: 2em;
+            margin: 10px 0; /* Add space between headings */
         }
     </style>
 </head>
 <body>
     <h1>Website Coming Soon!</h1>
-    <br />
-    <h1>You will automaticall be redirected to my instagram page.</h1>
+    <h1>You will be redirected to my Instagram page in <span id="countdown">5</span> seconds.</h1>
+
+    <script>
+        var timeLeft = 5;
+        var countdownElement = document.getElementById('countdown');
+
+        var timerId = setInterval(function() {
+            timeLeft--;
+            countdownElement.innerHTML = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
