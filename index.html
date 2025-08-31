@@ -3,44 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Keep your Facebook domain verification meta tag -->
     <meta name="facebook-domain-verification" content="4lx1wqa7bboajysa9ajt38eqrywtm0" />
-    <meta http-equiv="refresh" content="5;url=https://link.annae.tattoo/">
-    <title>Coming Soon</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 10px 0; /* Add space between headings */
+    
+    <title>Annae Tattoo - Coming Soon!</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        /* Applying some base styles to elements for consistency */
+        @layer base {
+          body {
+            @apply font-sans;
+          }
         }
     </style>
 </head>
-<body>
-    <h1>Website Coming Soon!</h1>
-    <h1>You will be redirected to my booking page in <span id="countdown">5</span> seconds.</h1>
+<body class="bg-gray-900 text-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-center">Website Coming Soon!</h1>
+    <h1 class="text-3xl md:text-4xl text-teal-400 mb-10 text-center">
+        You will be redirected to our main links in <span id="countdown" class="font-bold">5</span> seconds.
+    </h1>
 
-    <script>
-        var timeLeft = 5;
-        var countdownElement = document.getElementById('countdown');
+    <div class="links flex flex-col sm:flex-row flex-wrap justify-center gap-4 max-w-4xl mb-16">
+        <p class="text-lg w-full mb-4 sm:hidden">In the meantime, you can explore:</p>
+        
+        <a href="/link" class="link-button">All Our Links (Linktree)</a>
+        <a href="/booking" class="link-button">Book an Appointment</a>
+        <a href="/terms" class="link-button">Terms & Policies</a>
+        <a href="/price" class="link-button">Pricing Information</a>
+        <a href="/review" class="link-button">Leave a Review</a>
+        <a href="/map" class="link-button">Find Us (Map)</a>
+        <a href="/msg" class="link-button">Message Us (WhatsApp)</a>
+        <a href="/fb" class="link-button">Facebook</a>
+        <a href="/ig" class="link-button">Instagram</a>
+        <a href="/care" class="link-button">Aftercare Instructions</a>
+        <a href="/contract" class="link-button">Client Contract (General)</a>
+        <a href="/contract.en" class="link-button">Client Contract (English)</a>
+        <a href="/contract.no" class="link-button">Client Contract (Norwegian)</a>
+        <a href="/contract.ru" class="link-button">Client Contract (Russian)</a>
+    </div>
 
-        var timerId = setInterval(function() {
-            timeLeft--;
-            countdownElement.innerHTML = timeLeft;
+    <!-- NEW: About Section -->
+    <div class="about-section max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Masterful Permanent Makeup & Tattoo Removal</h2>
+        <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            Anna Erkhova, is a master tattoo artist who specializes in permanent makeup services for eyebrows, eyelids, and lips, as well as tattoo removal with CRC. With a strong background in sculpture and applied art, Anna honed her skills for six years in Moscow, creating natural, elegant, and expressive looks. Now in the Drammen and Oslo area, she offers personalized experiences, powder brows, henna technique, various eyelid techniques, and 3D ombre lip makeup.
+        </p>
+        <p class="text-gray-300 text-lg leading-relaxed">
+            Anna prioritizes safety and quality, using only high-quality, certified products and equipment. Book an appointment and experience exceptional artistry that perfectly balances beauty and self-expression from a seasoned expert.
+        </p>
+        <a href="/booking" class="mt-8 inline-block px-8 py-4 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-xl hover:bg-teal-600 transition duration-300 text-xl">
+            Book Your Appointment Today
+        </a>
+    </div>
 
-            if (timeLeft <= 0) {
-                clearInterval(timerId);
+    <script type="text/javascript">
+        // Add a custom class to apply consistent styling for buttons
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                // Define custom colors here if needed, or stick to Tailwind's palette
+              }
             }
-        }, 1000);
+          }
+        }
+        // Injecting the custom button styles dynamically for .link-button
+        // This makes the HTML cleaner for repetitive buttons
+        const buttonStyles = 'inline-block px-6 py-3 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-lg hover:bg-teal-600 transition duration-300 whitespace-nowrap';
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = `.link-button { ${buttonStyles} }`;
+        document.head.appendChild(styleTag);
+        
+        let timeLeft = 5; // Initial countdown time in seconds
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            if (timeLeft <= 0) {
+                // Redirect to the /link path after countdown
+                // This path will then handle the final redirect to Linktree
+                window.location.href = "/link"; 
+            } else {
+                countdownElement.textContent = timeLeft;
+                timeLeft--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        // Start the countdown when the page loads
+        document.addEventListener('DOMContentLoaded', updateCountdown);
     </script>
 </body>
 </html>
