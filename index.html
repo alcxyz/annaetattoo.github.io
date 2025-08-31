@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style type="text/tailwindcss">
-        /* Applying some base styles to elements for consistency */
+        /* Applying base global styles using @layer base */
         @layer base {
           body {
             @apply font-sans;
@@ -46,7 +46,7 @@
             scroll-behavior: smooth;
           }
         }
-        /* Custom styling for the off-canvas menu transition */
+        /* Regular CSS for transitions that don't use @apply for classes */
         .off-canvas-menu {
             transform: translateX(-100%);
             transition: transform 0.3s ease-out;
@@ -63,27 +63,13 @@
             visibility: visible;
             opacity: 0.7;
         }
-        /* Style for the social icons */
-        .social-icon {
-            @apply text-ctp-text hover:text-ctp-teal transition duration-300 text-3xl;
-        }
-        /* Carousel specific styles */
+        /* Carousel specific styles - can be regular CSS as they don't apply custom tailwind */
         .carousel-image {
             display: none; /* Hidden by default */
         }
         .carousel-image.active {
             display: block; /* Shown when active */
         }
-        .carousel-indicator {
-            @apply w-3 h-3 bg-ctp-subtext0 rounded-full cursor-pointer hover:bg-ctp-teal transition-colors duration-200;
-        }
-        .carousel-indicator.active {
-            @apply bg-ctp-teal;
-        }
-        /* Reusable Tailwind component styles */
-        .nav-link { @apply text-lg text-ctp-teal hover:text-ctp-lavender transition duration-300; }
-        .mobile-nav-link { @apply text-xl text-ctp-text hover:text-ctp-teal transition duration-300 block py-2; }
-        .link-button { @apply inline-block px-6 py-3 bg-ctp-teal text-ctp-base font-bold rounded-lg shadow-lg hover:bg-ctp-lavender transition duration-300 whitespace-nowrap; }
     </style>
 </head>
 <body class="bg-ctp-base text-ctp-text flex flex-col items-center min-h-screen p-4">
@@ -220,8 +206,80 @@
 
 
     <script type="text/javascript">
-        // Countdown Logic (already uses DOMContentLoaded)
-        let timeLeft = 5; // Initial countdown time in seconds
+        // Injecting reusable Tailwind styles for custom component classes
+        // This is the proven method for custom classes with the CDN without a build step.
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = `
+            .nav-link { 
+                font-size: 1.125rem; /* text-lg */
+                color: var(--ctp-teal);
+                transition-property: color; 
+                transition-duration: 300ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+            }
+            .nav-link:hover {
+                color: var(--ctp-lavender);
+            }
+            .mobile-nav-link { 
+                font-size: 1.25rem; /* text-xl */
+                color: var(--ctp-text);
+                transition-property: color; 
+                transition-duration: 300ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                display: block; 
+                padding-top: 0.5rem; /* py-2 */
+                padding-bottom: 0.5rem; /* py-2 */
+            }
+            .mobile-nav-link:hover {
+                color: var(--ctp-teal);
+            }
+            .link-button { 
+                display: inline-block; 
+                padding-left: 1.5rem; /* px-6 */
+                padding-right: 1.5rem; /* px-6 */
+                padding-top: 0.75rem; /* py-3 */
+                padding-bottom: 0.75rem; /* py-3 */
+                background-color: var(--ctp-teal);
+                color: var(--ctp-base);
+                font-weight: 700; /* font-bold */
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: var(--tw-shadow-lg); /* shadow-lg */
+                transition-property: background-color; 
+                transition-duration: 300ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                white-space: nowrap;
+            }
+            .link-button:hover {
+                background-color: var(--ctp-lavender);
+            }
+            .social-icon {
+                color: var(--ctp-text);
+                transition-property: color; 
+                transition-duration: 300ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                font-size: 1.875rem; /* text-3xl */
+            }
+            .social-icon:hover {
+                color: var(--ctp-teal);
+            }
+            .carousel-indicator {
+                width: 0.75rem; /* w-3 */
+                height: 0.75rem; /* h-3 */
+                background-color: var(--ctp-subtext0);
+                border-radius: 9999px; /* rounded-full */
+                cursor: pointer;
+                transition-property: background-color; 
+                transition-duration: 200ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .carousel-indicator.active {
+                background-color: var(--ctp-teal);
+            }
+        `;
+        document.head.appendChild(styleTag);
+        
+        // --- Countdown Logic ---
+        let timeLeft = 5; 
         const countdownElement = document.getElementById('countdown');
 
         function updateCountdown() {
@@ -235,7 +293,7 @@
         }
         document.addEventListener('DOMContentLoaded', updateCountdown);
 
-        // Mobile Menu Logic (already uses DOMContentLoaded)
+        // --- Mobile Menu Logic ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const closeMenuButton = document.getElementById('close-menu-button');
         const offCanvasMenu = document.getElementById('off-canvas-menu');
@@ -247,7 +305,6 @@
             document.body.classList.toggle('overflow-hidden'); 
         }
 
-        // Using optional chaining (?) for robustness in case elements aren't found
         mobileMenuButton?.addEventListener('click', toggleMenu);
         closeMenuButton?.addEventListener('click', toggleMenu);
         offCanvasOverlay?.addEventListener('click', toggleMenu); 
@@ -260,14 +317,13 @@
             });
         });
 
-        // Image Carousel Logic (already uses DOMContentLoaded)
+        // --- Image Carousel Logic ---
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carousel-image');
         const indicatorsContainer = document.querySelector('.carousel-indicators');
         let autoSlideInterval;
 
         function showSlide(n) {
-            // Ensure all are initially transparent for transition
             slides.forEach(slide => {
                 slide.classList.remove('active', 'opacity-100');
                 slide.classList.add('opacity-0'); 
@@ -276,7 +332,6 @@
             if (n >= slides.length) { slideIndex = 0; }
             if (n < 0) { slideIndex = slides.length - 1; }
             
-            // Wait for next frame before adding opacity-100 to allow transition
             requestAnimationFrame(() => {
                 slides[slideIndex].classList.add('active', 'opacity-100');
             });
@@ -301,7 +356,7 @@
             indicatorsContainer.innerHTML = ''; 
             for (let i = 0; i < slides.length; i++) {
                 const indicator = document.createElement('div');
-                indicator.classList.add('carousel-indicator'); // Applies Tailwind styles defined in <style> block
+                indicator.classList.add('carousel-indicator'); 
                 if (i === slideIndex) {
                     indicator.classList.add('active');
                 }
@@ -313,7 +368,7 @@
         function startAutoSlide() {
             autoSlideInterval = setInterval(() => {
                 showSlide(slideIndex += 1);
-            }, 5000); // Change image every 5 seconds
+            }, 5000); 
         }
 
         document.addEventListener('DOMContentLoaded', () => {
