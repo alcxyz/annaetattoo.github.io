@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Keep your Facebook domain verification meta tag -->
     <meta name="facebook-domain-verification" content="4lx1wqa7bboajysa9ajt38eqrywtm0" />
     
-    <title>Annae Tattoo - Coming Soon!</title>
+    <title>annae.tattoo - Masterful Permanent Makeup & Tattoo Removal</title>
     
+    <!-- Custom Tailwind Config MUST come BEFORE the Tailwind CDN script -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                // Define your Catppuccin palette here
+                ctp: {
+                  base:    '#24273A',
+                  surface0: '#363A4F',
+                  text:    '#CAD3F5',
+                  subtext0: '#A5ADCB',
+                  lavender: '#B7BDF8',
+                  teal:    '#91D7E3',
+                  red:     '#ED8796',
+                  green:   '#A6DA95',
+                },
+              },
+            },
+          },
+        };
+    </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN for Icons (used in header and social links) -->
+    <!-- Font Awesome CDN for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style type="text/tailwindcss">
@@ -19,7 +40,6 @@
           body {
             @apply font-sans;
           }
-          /* Ensure smooth scrolling for anchor links */
           html {
             scroll-behavior: smooth;
           }
@@ -43,7 +63,7 @@
         }
         /* Style for the social icons */
         .social-icon {
-            @apply text-white hover:text-teal-400 transition duration-300 text-3xl;
+            @apply text-ctp-text hover:text-ctp-teal transition duration-300 text-3xl;
         }
         /* Carousel specific styles */
         .carousel-image {
@@ -53,18 +73,22 @@
             display: block; /* Shown when active */
         }
         .carousel-indicator {
-            @apply w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-teal-400 transition-colors duration-200;
+            @apply w-3 h-3 bg-ctp-subtext0 rounded-full cursor-pointer hover:bg-ctp-teal transition-colors duration-200;
         }
         .carousel-indicator.active {
-            @apply bg-teal-500;
+            @apply bg-ctp-teal;
         }
+        /* Reusable Tailwind styles for navigation links */
+        .nav-link { @apply text-lg text-ctp-teal hover:text-ctp-lavender transition duration-300; }
+        .mobile-nav-link { @apply text-xl text-ctp-text hover:text-ctp-teal transition duration-300 block py-2; }
+        .link-button { @apply inline-block px-6 py-3 bg-ctp-teal text-ctp-base font-bold rounded-lg shadow-lg hover:bg-ctp-lavender transition duration-300 whitespace-nowrap; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 flex flex-col items-center min-h-screen p-4">
+<body class="bg-ctp-base text-ctp-text flex flex-col items-center min-h-screen p-4">
 
     <!-- Header & Navigation -->
     <header class="w-full max-w-7xl flex justify-between items-center py-4 px-2 md:px-0 z-30">
-        <div class="text-3xl font-bold text-white">annae.tattoo</div>
+        <div class="text-3xl font-bold text-ctp-text">annae.tattoo</div>
         
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-6">
@@ -75,7 +99,7 @@
         </nav>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden p-2 text-white">
+        <button id="mobile-menu-button" class="md:hidden p-2 text-ctp-text">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
@@ -83,10 +107,10 @@
     </header>
 
     <!-- Off-Canvas Mobile Menu -->
-    <div id="off-canvas-menu" class="off-canvas-menu fixed inset-y-0 left-0 w-64 bg-gray-800 shadow-lg z-50 p-6 md:hidden">
+    <div id="off-canvas-menu" class="off-canvas-menu fixed inset-y-0 left-0 w-64 bg-ctp-surface0 shadow-lg z-50 p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <span class="text-xl font-bold text-white">Menu</span>
-            <button id="close-menu-button" class="p-2 text-white">
+            <span class="text-xl font-bold text-ctp-text">Menu</span>
+            <button id="close-menu-button" class="p-2 text-ctp-text">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -97,7 +121,7 @@
             <a href="/price" class="mobile-nav-link">Price List</a>
             <a href="/terms" class="mobile-nav-link">Policies</a>
             <a href="/link" class="mobile-nav-link">Links Hub</a>
-            <hr class="border-gray-700 my-2"> <!-- Separator -->
+            <hr class="border-ctp-surface0 my-2"> <!-- Separator -->
             <a href="/review" class="mobile-nav-link">Leave a Review</a>
             <a href="/map" class="mobile-nav-link">Find Us (Map)</a>
             <a href="/msg" class="mobile-nav-link">Message Us (WhatsApp)</a>
@@ -113,8 +137,8 @@
 
     <!-- Main Content Area -->
     <main class="flex flex-col items-center flex-grow w-full max-w-4xl mt-8 md:mt-0 pb-16">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-center">Website Coming Soon!</h1>
-        <h1 class="text-3xl md:text-4xl text-teal-400 mb-10 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-ctp-text mb-4 text-center">Website Coming Soon!</h1>
+        <h1 class="text-3xl md:text-4xl text-ctp-teal mb-10 text-center">
             You will be redirected to our main links in <span id="countdown" class="font-bold">5</span> seconds.
         </h1>
 
@@ -127,10 +151,10 @@
                 <img src="/images/carousel-3.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 3">
             </div>
             <!-- Navigation Buttons -->
-            <button class="carousel-button prev absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all z-20">
+            <button class="carousel-button prev absolute top-1/2 left-4 -translate-y-1/2 bg-ctp-base bg-opacity-70 text-ctp-text p-3 rounded-full hover:bg-opacity-90 transition-all z-20">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carousel-button next absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all z-20">
+            <button class="carousel-button next absolute top-1/2 right-4 -translate-y-1/2 bg-ctp-base bg-opacity-70 text-ctp-text p-3 rounded-full hover:bg-opacity-90 transition-all z-20">
                 <i class="fas fa-chevron-right"></i>
             </button>
             <!-- Indicators -->
@@ -139,24 +163,23 @@
             </div>
         </div>
 
-
         <!-- About Section -->
-        <div class="about-section max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl text-center mb-16">
-            <h2 class="text-3xl font-bold text-white mb-4">Masterful Permanent Makeup & Tattoo Removal</h2>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+        <div class="about-section max-w-4xl mx-auto p-6 bg-ctp-surface0 rounded-lg shadow-xl text-center mb-16">
+            <h2 class="text-3xl font-bold text-ctp-text mb-4">Masterful Permanent Makeup & Tattoo Removal</h2>
+            <p class="text-ctp-subtext0 text-lg leading-relaxed mb-4">
                 Anna Erkhova, is a master tattoo artist who specializes in permanent makeup services for eyebrows, eyelids, and lips, as well as tattoo removal with CRC. With a strong background in sculpture and applied art, Anna honed her skills for six years in Moscow, creating natural, elegant, and expressive looks. Now in the Drammen and Oslo area, she offers personalized experiences, powder brows, henna technique, various eyelid techniques, and 3D ombre lip makeup.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed">
+            <p class="text-ctp-subtext0 text-lg leading-relaxed">
                 Anna prioritizes safety and quality, using only high-quality, certified products and equipment. Book an appointment and experience exceptional artistry that perfectly balances beauty and self-expression from a seasoned expert.
             </p>
-            <a href="/booking" class="mt-8 inline-block px-8 py-4 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-xl hover:bg-teal-600 transition duration-300 text-xl">
+            <a href="/booking" class="mt-8 inline-block px-8 py-4 bg-ctp-teal text-ctp-base font-bold rounded-lg shadow-xl hover:bg-ctp-lavender transition duration-300 text-xl">
                 Book Your Appointment Today
             </a>
         </div>
 
         <!-- Google Maps Section -->
-        <div class="google-map-section w-full max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl mb-16">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">Find Us Here</h2>
+        <div class="google-map-section w-full max-w-4xl mx-auto p-6 bg-ctp-surface0 rounded-lg shadow-xl mb-16">
+            <h2 class="text-3xl font-bold text-ctp-text mb-4 text-center">Find Us Here</h2>
             <div class="relative overflow-hidden w-full h-96 rounded-lg shadow-md">
                 <iframe src="https://storage.googleapis.com/maps-solutions-gmrra5885n/commutes/fc93/commutes.html"
                   width="100%" height="100%"
@@ -166,47 +189,40 @@
                   referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-            <p class="text-center text-gray-400 text-sm mt-4">Click the map to open in a new tab for directions.</p>
+            <p class="text-center text-ctp-subtext0 text-sm mt-4">Click the map to open in a new tab for directions.</p>
         </div>
         
         <!-- Instagram Feed Note (instead of iframe) -->
-        <div class="w-full max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl text-center mb-16">
-            <h2 class="text-3xl font-bold text-white mb-4">Our Latest Work</h2>
-            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+        <div class="w-full max-w-4xl mx-auto p-6 bg-ctp-surface0 rounded-lg shadow-xl text-center mb-16">
+            <h2 class="text-3xl font-bold text-ctp-text mb-4">Our Latest Work</h2>
+            <p class="text-ctp-subtext0 text-lg leading-relaxed mb-4">
                 For the most recent updates and a full portfolio of Anna's masterful work, please visit our Instagram profile.
                 A direct embed of a live Instagram feed is not feasible on this static site, but you can always find us here:
             </p>
-            <a href="/ig" class="mt-4 inline-block px-8 py-4 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-xl hover:bg-teal-600 transition duration-300 text-xl">
+            <a href="/ig" class="mt-4 inline-block px-8 py-4 bg-ctp-teal text-ctp-base font-bold rounded-lg shadow-xl hover:bg-ctp-lavender transition duration-300 text-xl">
                 View Instagram Profile
             </a>
         </div>
     </main>
 
     <!-- Footer for Social Icons -->
-    <footer class="w-full max-w-7xl bg-gray-900 py-8 text-center border-t border-gray-700 mt-auto">
-        <h2 class="text-2xl font-bold text-white mb-4">Connect with Annae Tattoo</h2>
+    <footer class="w-full max-w-7xl bg-ctp-base py-8 text-center border-t border-ctp-surface0 mt-auto">
+        <h2 class="text-2xl font-bold text-ctp-text mb-4">Connect with Annae Tattoo</h2>
         <div class="flex justify-center space-x-6 mb-6">
             <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="/ig" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
             <a href="/msg" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="text-md text-gray-400">&copy; 2024 Annae Tattoo. All rights reserved.</p>
+        <p class="text-md text-ctp-subtext0">&copy; 2024 Annae Tattoo. All rights reserved.</p>
     </footer>
 
 
     <script type="text/javascript">
-        // Injecting reusable Tailwind styles for navigation links
-        const navLinkStyles = 'text-lg text-teal-400 hover:text-teal-300 transition duration-300';
-        const mobileNavLinkStyles = 'text-xl text-white hover:text-teal-400 transition duration-300 block py-2';
-        const styleTag = document.createElement('style');
-        styleTag.innerHTML = `
-            .nav-link { ${navLinkStyles} }
-            .mobile-nav-link { ${mobileNavLinkStyles} }
-        `;
-        document.head.appendChild(styleTag);
-        
-        // --- Countdown Logic ---
-        let timeLeft = 5; // Initial countdown time in seconds
+        // --- IMPORTANT: Ensure this script runs AFTER tailwind.config is set and AFTER Tailwind CDN script loads ---
+        // It's usually best to put these dynamic style injections and DOM manipulation scripts at the end of <body> or listen for DOMContentLoaded.
+
+        // Countdown Logic (already uses DOMContentLoaded)
+        let timeLeft = 30; // Initial countdown time in seconds
         const countdownElement = document.getElementById('countdown');
 
         function updateCountdown() {
@@ -220,7 +236,7 @@
         }
         document.addEventListener('DOMContentLoaded', updateCountdown);
 
-        // --- Mobile Menu Logic ---
+        // Mobile Menu Logic (already uses DOMContentLoaded)
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const closeMenuButton = document.getElementById('close-menu-button');
         const offCanvasMenu = document.getElementById('off-canvas-menu');
@@ -229,15 +245,14 @@
         function toggleMenu() {
             offCanvasMenu.classList.toggle('open');
             offCanvasOverlay.classList.toggle('open');
-            document.body.classList.toggle('overflow-hidden'); // Prevent scrolling body when menu is open
+            document.body.classList.toggle('overflow-hidden'); 
         }
 
-        mobileMenuButton.addEventListener('click', toggleMenu);
-        closeMenuButton.addEventListener('click', toggleMenu);
-        offCanvasOverlay.addEventListener('click', toggleMenu); // Close menu when clicking overlay
+        mobileMenuButton?.addEventListener('click', toggleMenu);
+        closeMenuButton?.addEventListener('click', toggleMenu);
+        offCanvasOverlay?.addEventListener('click', toggleMenu); 
 
-        // Close menu if a link inside is clicked (for smoother navigation)
-        offCanvasMenu.querySelectorAll('a').forEach(link => {
+        offCanvasMenu?.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (offCanvasMenu.classList.contains('open')) {
                     toggleMenu();
@@ -245,7 +260,7 @@
             });
         });
 
-        // --- Image Carousel Logic ---
+        // Image Carousel Logic (already uses DOMContentLoaded)
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carousel-image');
         const indicatorsContainer = document.querySelector('.carousel-indicators');
@@ -253,7 +268,7 @@
 
         function showSlide(n) {
             slides.forEach(slide => slide.classList.remove('active', 'opacity-100'));
-            slides.forEach(slide => slide.classList.add('opacity-0')); // Ensure all are initially transparent for transition
+            slides.forEach(slide => slide.classList.add('opacity-0')); 
 
             if (n >= slides.length) { slideIndex = 0; }
             if (n < 0) { slideIndex = slides.length - 1; }
@@ -263,24 +278,24 @@
         }
 
         function plusSlides(n) {
-            clearInterval(autoSlideInterval); // Stop auto-slide when manual navigation
+            clearInterval(autoSlideInterval); 
             showSlide(slideIndex += n);
-            startAutoSlide(); // Restart auto-slide
+            startAutoSlide(); 
         }
 
         function currentSlide(n) {
-            clearInterval(autoSlideInterval); // Stop auto-slide when manual navigation
+            clearInterval(autoSlideInterval); 
             slideIndex = n;
             showSlide(slideIndex);
-            startAutoSlide(); // Restart auto-slide
+            startAutoSlide(); 
         }
 
         function updateIndicators() {
             if (!indicatorsContainer) return;
-            indicatorsContainer.innerHTML = ''; // Clear previous indicators
+            indicatorsContainer.innerHTML = ''; 
             for (let i = 0; i < slides.length; i++) {
                 const indicator = document.createElement('div');
-                indicator.classList.add('carousel-indicator');
+                indicator.classList.add('carousel-indicator'); // Applies Tailwind styles defined in <style> block
                 if (i === slideIndex) {
                     indicator.classList.add('active');
                 }
@@ -295,16 +310,13 @@
             }, 5000); // Change image every 5 seconds
         }
 
-        // Initialize carousel on DOMContentLoaded, after other elements are ready
         document.addEventListener('DOMContentLoaded', () => {
             if (slides.length > 0) {
                 showSlide(slideIndex);
-                // Attach event listeners to carousel buttons
                 document.querySelector('.carousel-button.prev')?.addEventListener('click', () => plusSlides(-1));
                 document.querySelector('.carousel-button.next')?.addEventListener('click', () => plusSlides(1));
                 startAutoSlide();
             } else {
-                // Hide carousel if no images are present
                 document.getElementById('image-carousel')?.classList.add('hidden');
             }
         });
