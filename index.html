@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Keep your Facebook domain verification meta tag -->
     <meta name="facebook-domain-verification" content="4lx1wqa7bboajysa9ajt38eqrywtm0" />
     
-    <title>annae.tattoo - Masterful Permanent Makeup &amp Tattoo Removal</title>
+    <title>Annae Tattoo - Coming Soon!</title>
     
     <!-- Custom Tailwind Config MUST come BEFORE the Tailwind CDN script -->
     <script>
@@ -15,14 +16,14 @@
               colors: {
                 // Define your Catppuccin palette here
                 ctp: {
-                  base:    '#24273A',
-                  surface0: '#363A4F',
-                  text:    '#CAD3F5',
-                  subtext0: '#A5ADCB',
-                  lavender: '#B7BDF8',
-                  teal:    '#91D7E3',
-                  red:     '#ED8796',
-                  green:   '#A6DA95',
+                  base:    '#24273A',  // Equivalent to your old bg-gray-900 / dark backgrounds
+                  surface0: '#363A4F', // Slightly lighter for card backgrounds
+                  text:    '#CAD3F5',  // Main light text
+                  subtext0: '#A5ADCB', // Secondary text
+                  lavender: '#B7BDF8', // A highlight accent
+                  teal:    '#91D7E3',  // Your primary accent color for links/buttons
+                  red:     '#ED8796',  // For fire emojis / warnings
+                  green:   '#A6DA95',  // For discounts
                 },
               },
             },
@@ -40,6 +41,7 @@
           body {
             @apply font-sans;
           }
+          /* Ensure smooth scrolling for anchor links */
           html {
             scroll-behavior: smooth;
           }
@@ -78,7 +80,7 @@
         .carousel-indicator.active {
             @apply bg-ctp-teal;
         }
-        /* Reusable Tailwind styles for navigation links */
+        /* Reusable Tailwind component styles */
         .nav-link { @apply text-lg text-ctp-teal hover:text-ctp-lavender transition duration-300; }
         .mobile-nav-link { @apply text-xl text-ctp-text hover:text-ctp-teal transition duration-300 block py-2; }
         .link-button { @apply inline-block px-6 py-3 bg-ctp-teal text-ctp-base font-bold rounded-lg shadow-lg hover:bg-ctp-lavender transition duration-300 whitespace-nowrap; }
@@ -121,7 +123,7 @@
             <a href="/price" class="mobile-nav-link">Price List</a>
             <a href="/terms" class="mobile-nav-link">Policies</a>
             <a href="/link" class="mobile-nav-link">Links Hub</a>
-            <hr class="border-ctp-surface0 my-2"> <!-- Separator -->
+            <hr class="border-ctp-base my-2"> <!-- Separator -->
             <a href="/review" class="mobile-nav-link">Leave a Review</a>
             <a href="/map" class="mobile-nav-link">Find Us (Map)</a>
             <a href="/msg" class="mobile-nav-link">Message Us (WhatsApp)</a>
@@ -218,11 +220,8 @@
 
 
     <script type="text/javascript">
-        // --- IMPORTANT: Ensure this script runs AFTER tailwind.config is set and AFTER Tailwind CDN script loads ---
-        // It's usually best to put these dynamic style injections and DOM manipulation scripts at the end of <body> or listen for DOMContentLoaded.
-
         // Countdown Logic (already uses DOMContentLoaded)
-        let timeLeft = 30; // Initial countdown time in seconds
+        let timeLeft = 5; // Initial countdown time in seconds
         const countdownElement = document.getElementById('countdown');
 
         function updateCountdown() {
@@ -248,6 +247,7 @@
             document.body.classList.toggle('overflow-hidden'); 
         }
 
+        // Using optional chaining (?) for robustness in case elements aren't found
         mobileMenuButton?.addEventListener('click', toggleMenu);
         closeMenuButton?.addEventListener('click', toggleMenu);
         offCanvasOverlay?.addEventListener('click', toggleMenu); 
@@ -267,13 +267,19 @@
         let autoSlideInterval;
 
         function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active', 'opacity-100'));
-            slides.forEach(slide => slide.classList.add('opacity-0')); 
+            // Ensure all are initially transparent for transition
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'opacity-100');
+                slide.classList.add('opacity-0'); 
+            });
 
             if (n >= slides.length) { slideIndex = 0; }
             if (n < 0) { slideIndex = slides.length - 1; }
             
-            slides[slideIndex].classList.add('active', 'opacity-100');
+            // Wait for next frame before adding opacity-100 to allow transition
+            requestAnimationFrame(() => {
+                slides[slideIndex].classList.add('active', 'opacity-100');
+            });
             updateIndicators();
         }
 
