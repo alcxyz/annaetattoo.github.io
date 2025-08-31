@@ -6,7 +6,7 @@
     <!-- Keep your Facebook domain verification meta tag -->
     <meta name="facebook-domain-verification" content="4lx1wqa7bboajysa9ajt38eqrywtm0" />
     
-    <title>annae.tattoo - Masterful Permanent Makeup & Tattoo Removal - Coming Soon!</title>
+    <title>Annae Tattoo - Coming Soon!</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,72 +17,115 @@
             @apply font-sans;
           }
         }
+        /* Custom styling for the off-canvas menu transition */
+        .off-canvas-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-out;
+        }
+        .off-canvas-menu.open {
+            transform: translateX(0);
+        }
+        .off-canvas-overlay {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+        .off-canvas-overlay.open {
+            visibility: visible;
+            opacity: 0.7;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-center">Website Coming Soon!</h1>
-    <h1 class="text-3xl md:text-4xl text-teal-400 mb-10 text-center">
-        You will be redirected to our main links in <span id="countdown" class="font-bold">5</span> seconds.
-    </h1>
+<body class="bg-gray-900 text-gray-100 flex flex-col items-center min-h-screen p-4">
 
-    <div class="links flex flex-col sm:flex-row flex-wrap justify-center gap-4 max-w-4xl mb-16">
-        <p class="text-lg w-full mb-4 sm:hidden">In the meantime, you can explore:</p>
+    <!-- Header & Navigation -->
+    <header class="w-full max-w-7xl flex justify-between items-center py-4 px-2 md:px-0">
+        <div class="text-3xl font-bold text-white">annae.tattoo</div>
         
-        <a href="/link" class="link-button">All Our Links (Linktree)</a>
-        <a href="/booking" class="link-button">Book an Appointment</a>
-        <a href="/terms" class="link-button">Terms & Policies</a>
-        <a href="/price" class="link-button">Pricing Information</a>
-        <a href="/review" class="link-button">Leave a Review</a>
-        <a href="/map" class="link-button">Find Us (Map)</a>
-        <a href="/msg" class="link-button">Message Us (WhatsApp)</a>
-        <a href="/fb" class="link-button">Facebook</a>
-        <a href="/ig" class="link-button">Instagram</a>
-        <a href="/care" class="link-button">Aftercare Instructions</a>
-        <a href="/contract" class="link-button">Client Contract (General)</a>
-        <a href="/contract.en" class="link-button">Client Contract (English)</a>
-        <a href="/contract.no" class="link-button">Client Contract (Norwegian)</a>
-        <a href="/contract.ru" class="link-button">Client Contract (Russian)</a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="/booking" class="nav-link">Book Appointment</a>
+            <a href="/price" class="nav-link">Price List</a>
+            <a href="/terms" class="nav-link">Policies</a>
+            <a href="/link" class="nav-link">Links Hub</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Off-Canvas Mobile Menu -->
+    <div id="off-canvas-menu" class="off-canvas-menu fixed inset-y-0 left-0 w-64 bg-gray-800 shadow-lg z-50 p-6 md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <span class="text-xl font-bold text-white">Menu</span>
+            <button id="close-menu-button" class="p-2 text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4">
+            <a href="/booking" class="mobile-nav-link">Book Appointment</a>
+            <a href="/price" class="mobile-nav-link">Price List</a>
+            <a href="/terms" class="mobile-nav-link">Policies</a>
+            <a href="/link" class="mobile-nav-link">Links Hub</a>
+            <hr class="border-gray-700 my-2"> <!-- Separator -->
+            <a href="/review" class="mobile-nav-link">Leave a Review</a>
+            <a href="/map" class="mobile-nav-link">Find Us (Map)</a>
+            <a href="/msg" class="mobile-nav-link">Message Us (WhatsApp)</a>
+            <a href="/fb" class="mobile-nav-link">Facebook</a>
+            <a href="/ig" class="mobile-nav-link">Instagram</a>
+            <a href="/care" class="mobile-nav-link">Aftercare Instructions</a>
+            <!-- Contract links are intentionally hidden from public menu -->
+        </nav>
     </div>
 
-    <!-- NEW: About Section -->
-    <div class="about-section max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">Masterful Permanent Makeup & Tattoo Removal</h2>
-        <p class="text-gray-300 text-lg leading-relaxed mb-4">
-            Anna Erkhova, is a master tattoo artist who specializes in permanent makeup services for eyebrows, eyelids, and lips, as well as tattoo removal with CRC. With a strong background in sculpture and applied art, Anna honed her skills for six years in Moscow, creating natural, elegant, and expressive looks. Now in the Drammen and Oslo area, she offers personalized experiences, powder brows, henna technique, various eyelid techniques, and 3D ombre lip makeup.
-        </p>
-        <p class="text-gray-300 text-lg leading-relaxed">
-            Anna prioritizes safety and quality, using only high-quality, certified products and equipment. Book an appointment and experience exceptional artistry that perfectly balances beauty and self-expression from a seasoned expert.
-        </p>
-        <a href="/booking" class="mt-8 inline-block px-8 py-4 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-xl hover:bg-teal-600 transition duration-300 text-xl">
-            Book Your Appointment Today
-        </a>
-    </div>
+    <!-- Off-Canvas Overlay -->
+    <div id="off-canvas-overlay" class="off-canvas-overlay fixed inset-0 bg-black z-40 md:hidden"></div>
+
+    <!-- Main Content Area -->
+    <main class="flex flex-col items-center justify-center flex-grow w-full max-w-4xl mt-8 md:mt-0">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 text-center">Website Coming Soon!</h1>
+        <h1 class="text-3xl md:text-4xl text-teal-400 mb-10 text-center">
+            You will be redirected to our main links in <span id="countdown" class="font-bold">5</span> seconds.
+        </h1>
+
+        <!-- About Section -->
+        <div class="about-section max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-4">Masterful Permanent Makeup & Tattoo Removal</h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                Anna Erkhova, is a master tattoo artist who specializes in permanent makeup services for eyebrows, eyelids, and lips, as well as tattoo removal with CRC. With a strong background in sculpture and applied art, Anna honed her skills for six years in Moscow, creating natural, elegant, and expressive looks. Now in the Drammen and Oslo area, she offers personalized experiences, powder brows, henna technique, various eyelid techniques, and 3D ombre lip makeup.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed">
+                Anna prioritizes safety and quality, using only high-quality, certified products and equipment. Book an appointment and experience exceptional artistry that perfectly balances beauty and self-expression from a seasoned expert.
+            </p>
+            <a href="/booking" class="mt-8 inline-block px-8 py-4 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-xl hover:bg-teal-600 transition duration-300 text-xl">
+                Book Your Appointment Today
+            </a>
+        </div>
+    </main>
 
     <script type="text/javascript">
-        // Add a custom class to apply consistent styling for buttons
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                // Define custom colors here if needed, or stick to Tailwind's palette
-              }
-            }
-          }
-        }
-        // Injecting the custom button styles dynamically for .link-button
-        // This makes the HTML cleaner for repetitive buttons
-        const buttonStyles = 'inline-block px-6 py-3 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-lg hover:bg-teal-600 transition duration-300 whitespace-nowrap';
+        // Injecting reusable Tailwind styles for navigation links
+        const navLinkStyles = 'text-lg text-teal-400 hover:text-teal-300 transition duration-300';
+        const mobileNavLinkStyles = 'text-xl text-white hover:text-teal-400 transition duration-300 block py-2';
         const styleTag = document.createElement('style');
-        styleTag.innerHTML = `.link-button { ${buttonStyles} }`;
+        styleTag.innerHTML = `
+            .nav-link { ${navLinkStyles} }
+            .mobile-nav-link { ${mobileNavLinkStyles} }
+        `;
         document.head.appendChild(styleTag);
         
+        // Countdown Logic
         let timeLeft = 10; // Initial countdown time in seconds
         const countdownElement = document.getElementById('countdown');
 
         function updateCountdown() {
             if (timeLeft <= 0) {
-                // Redirect to the /link path after countdown
-                // This path will then handle the final redirect to Linktree
                 window.location.href = "/link"; 
             } else {
                 countdownElement.textContent = timeLeft;
@@ -90,9 +133,32 @@
                 setTimeout(updateCountdown, 1000);
             }
         }
-
-        // Start the countdown when the page loads
         document.addEventListener('DOMContentLoaded', updateCountdown);
+
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const offCanvasMenu = document.getElementById('off-canvas-menu');
+        const offCanvasOverlay = document.getElementById('off-canvas-overlay');
+
+        function toggleMenu() {
+            offCanvasMenu.classList.toggle('open');
+            offCanvasOverlay.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden'); // Prevent scrolling body when menu is open
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        closeMenuButton.addEventListener('click', toggleMenu);
+        offCanvasOverlay.addEventListener('click', toggleMenu); // Close menu when clicking overlay
+
+        // Close menu if a link inside is clicked (for smoother navigation)
+        offCanvasMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (offCanvasMenu.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
     </script>
 </body>
 </html>
