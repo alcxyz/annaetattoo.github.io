@@ -1,0 +1,88 @@
+/* Base styles - applicable across all pages */
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  a {
+    @apply no-underline; /* Global reset for links */
+  }
+
+  /* Typography base styles, useful for content-heavy pages like Price List/Terms */
+  h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-teal-500 pb-4; }
+  h2 { @apply text-3xl font-semibold text-teal-300 mb-4 mt-8; }
+  h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; }
+  h4 { @apply text-xl font-semibold text-zinc-50 mb-2; } /* For individual item titles */
+  p { @apply mb-4 text-zinc-300 leading-relaxed; }
+  ul { @apply list-none mb-4 pl-0; }
+  li { @apply text-zinc-300 mb-2; }
+  strong { @apply text-teal-300; } /* Highlight strong text */
+
+  /* Price list specific item styles */
+  .price-item-link {
+    @apply flex flex-col md:flex-row md:justify-between md:items-start
+           p-4 bg-zinc-800 rounded-lg cursor-pointer
+           transition-colors duration-200 ease-in-out;
+  }
+  .price-item-link:hover {
+    @apply bg-zinc-700;
+  }
+  .price-item-link h4 {
+    @apply text-zinc-50 group-hover:text-teal-300 transition-colors duration-200;
+  }
+  .price-item-link .price-item-description {
+    @apply text-zinc-300;
+  }
+  .price-item-link .price-value,
+  .price-item-link .price-extra {
+    @apply text-teal-300;
+  }
+  .price-item-link .checkmark-icon {
+    @apply text-emerald-400;
+  }
+  .price-item-link .plus-icon {
+    @apply text-emerald-400 mr-2;
+  }
+  .discount-value { @apply text-emerald-400; }
+  .fire-icon { @apply text-rose-400; }
+}
+
+/* Custom component styles (off-canvas menu, nav links, carousel indicators) */
+.off-canvas-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+.off-canvas-menu.open {
+    transform: translateX(0);
+}
+.off-canvas-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+.off-canvas-overlay.open {
+    visibility: visible;
+    opacity: 0.7;
+}
+.nav-link {
+    @apply text-lg text-teal-300 hover:text-indigo-400 transition duration-300;
+}
+.mobile-nav-link {
+    @apply text-xl text-zinc-50 hover:text-teal-300 transition duration-300 block py-2;
+}
+.link-button {
+    @apply inline-block px-6 py-3 bg-teal-300 text-zinc-950 font-bold rounded-lg
+           shadow-lg hover:bg-teal-400 transition duration-300 whitespace-nowrap;
+}
+.social-icon {
+    @apply text-zinc-50 hover:text-teal-300 transition duration-300 text-3xl;
+}
+.carousel-indicator {
+    @apply w-3 h-3 bg-zinc-400 rounded-full cursor-pointer
+           hover:bg-teal-300 transition-colors duration-200;
+}
+.carousel-indicator.active {
+    @apply bg-teal-300;
+}

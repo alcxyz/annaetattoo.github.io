@@ -9,57 +9,9 @@
     <!-- Font Awesome CDN for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Centralized Stylesheet -->
     <style type="text/tailwindcss">
-        /* Applying base global styles using @layer base */
-        @layer base {
-          body {
-            @apply font-sans;
-          }
-          /* Ensure smooth scrolling for anchor links */
-          html {
-            scroll-behavior: smooth;
-          }
-          /* Globally remove underlines from links, reapply hover:underline where needed */
-          a {
-            @apply no-underline;
-          }
-          h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-teal-500 pb-4; }
-          h2 { @apply text-3xl font-semibold text-teal-300 mb-4 mt-8; }
-          h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; }
-          h4 { @apply text-xl font-semibold text-zinc-50 mb-2; } /* For individual item titles */
-          p { @apply mb-4 text-zinc-300 leading-relaxed; }
-          ul { @apply list-none mb-4 pl-0; }
-          li { @apply text-zinc-300 mb-2; }
-          strong { @apply text-teal-300; } /* Highlight strong text */
-
-          /* Custom styling for clickable price list items */
-          .price-item-link {
-            @apply flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-zinc-800 rounded-lg cursor-pointer transition-colors duration-200 ease-in-out;
-          }
-          .price-item-link:hover {
-            @apply bg-zinc-700;
-          }
-          /* Ensure text colors within the link respect the theme, and title changes on hover */
-          .price-item-link h4 {
-            @apply text-zinc-50 group-hover:text-teal-300 transition-colors duration-200;
-          }
-          .price-item-link .price-item-description {
-            @apply text-zinc-300;
-          }
-          .price-item-link .price-value,
-          .price-item-link .price-extra {
-            @apply text-teal-300;
-          }
-          .price-item-link .checkmark-icon {
-            @apply text-emerald-400; /* Ensure checkmark color is explicitly set */
-          }
-          .price-item-link .plus-icon {
-            @apply text-emerald-400 mr-2; /* Plus icon color for additional costs */
-          }
-          /* Other utility classes */
-          .discount-value { @apply text-emerald-400; }
-          .fire-icon { @apply text-rose-400; }
-        }
+        @import url('/src/main.css');
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-50 flex flex-col items-center min-h-screen">
