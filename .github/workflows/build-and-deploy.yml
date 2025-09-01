@@ -14,25 +14,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Standalone Tailwind CSS CLI
-        # This is the most robust method. It downloads the official pre-compiled binary.
-        # It has no dependency on Node.js or npm to run.
-        run: |
-          curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
-          mv tailwindcss-linux-x64 tailwindcss
-          chmod +x tailwindcss
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Create output directory for compiled site
-        # Using 'public' is a safe, neutral name that avoids any Jekyll conflicts.
-        run: mkdir -p public/dist
+      - name: Initialize npm project and install Tailwind CSS
+        # This creates package.json and installs tailwindcss as a dev dependency
+        run: |
+          npm init -y
+          npm install -D tailwindcss@latest
+
+      - name: Add build script to package.json
+        # This command programmatically adds our build script to package.json.
+        # This is the most reliable way to run local node binaries in CI.
+        run: npm pkg set scripts.build="tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify"
 
       - name: Build Tailwind CSS
-        # THE FIX: Explicitly pass the config file path with the -c flag.
-        # This ensures Tailwind loads its configuration and default classes correctly.
-        run: ./tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
+        # Now, we run the script we just defined. npm handles finding the executable.
+        run: npm run build
 
       - name: Copy static assets to output directory
-        # Copy all project files into the 'public' folder.
+        # Using 'public' is a safe, neutral name that avoids any Jekyll conflicts.
         run: |
           rsync -av --exclude 'public/' \
                     --exclude '.git/' \
@@ -41,7 +44,6 @@ jobs:
                     --exclude 'tailwind.config.js' \
                     --exclude 'package*.json' \
                     --exclude 'node_modules/' \
-                    --exclude 'tailwindcss' \
                     ./ ./public/
 
       - name: Create .nojekyll file
@@ -51,7 +53,7 @@ jobs:
       - name: Upload public folder as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public' # Upload the compiled site folder
+          path: './public'
 
   deploy:
     needs: build
