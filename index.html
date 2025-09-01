@@ -24,9 +24,6 @@
     <!-- Main Content Area -->
     <main class="flex flex-col items-center flex-grow w-full max-w-4xl mt-8 md:mt-0 pb-16">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-50 mb-4 text-center">Masterful Permanent Makeup & Tattoo Removal</h1>
-        <h1 class="text-rose-300 text-3xl md:text-4xl mb-10 text-center">
-            You will be redirected to our main links in <span id="countdown" class="font-bold">5</span> seconds.
-        </h1>
 
         <!-- Image Carousel Section -->
         <div id="image-carousel" class="relative w-full max-w-4xl mx-auto mb-16 h-96">
@@ -63,6 +60,9 @@
             </a>
         </div>
 
+        <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+        <div class="elfsight-app-87916ad0-75e6-419c-881e-f6f46ccb78b5" data-elfsight-app-lazy></div>
+
         <!-- Google Maps Section -->
         <div class="google-map-section w-full max-w-4xl mx-auto p-6 bg-zinc-900 rounded-lg shadow-xl mb-16">
             <h2 class="text-3xl font-bold text-zinc-50 mb-4 text-center">Find Us Here</h2>
@@ -77,144 +77,12 @@
             </div>
             <p class="text-center text-zinc-300 text-sm mt-4">Click the map to open in a new tab for directions.</p>
         </div>
-
-        <!-- Instagram Feed Note (instead of iframe) -->
-        <div class="w-full max-w-4xl mx-auto p-6 bg-zinc-900 rounded-lg shadow-xl text-center mb-16">
-            <h2 class="text-3xl font-bold text-zinc-50 mb-4">Our Latest Work</h2>
-            <p class="text-zinc-300 text-lg leading-relaxed mb-4">
-                For the most recent updates and a full portfolio of Anna's masterful work, please visit our Instagram profile.
-                A direct embed of a live Instagram feed is not feasible on this static site, but you can always find us here:
-            </p>
-            <a href="/ig" class="mt-4 inline-block px-8 py-4 bg-rose-300 text-zinc-950 font-bold rounded-lg shadow-xl hover:bg-rose-400 transition duration-300 text-xl">
-                View Instagram Profile
-            </a>
-        </div>
-
-        <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-        <div class="elfsight-app-87916ad0-75e6-419c-881e-f6f46ccb78b5" data-elfsight-app-lazy></div>
     </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder" class="w-full max-w-7xl"></div>
 
-
-    <script type="text/javascript">
-        // --- Partial Injection Logic (Header, Footer) ---
-        async function loadPartial(id, url) {
-            const response = await fetch(url);
-            const html = await response.text();
-            document.getElementById(id).innerHTML = html;
-        }
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Load header and footer - now that styles are static, no need to load styles here
-            await loadPartial('header-placeholder', '/partials/header.html');
-            await loadPartial('footer-placeholder', '/partials/footer.html');
-
-            // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
-
-            // --- Copyright Year Logic ---
-            const currentYearElement = document.getElementById('current-year');
-            if (currentYearElement) {
-                currentYearElement.textContent = new Date().getFullYear();
-            }
-
-            // --- Mobile Menu Logic ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const closeMenuButton = document.getElementById('close-menu-button');
-            const offCanvasMenu = document.getElementById('off-canvas-menu');
-            const offCanvasOverlay = document.getElementById('off-canvas-overlay');
-
-            if (mobileMenuButton && offCanvasMenu && offCanvasOverlay && closeMenuButton) {
-                function toggleMenu() {
-                    offCanvasMenu.classList.toggle('open');
-                    offCanvasOverlay.classList.toggle('open');
-                }
-                mobileMenuButton.addEventListener('click', toggleMenu);
-                closeMenuButton.addEventListener('click', toggleMenu);
-                offCanvasOverlay.addEventListener('click', toggleMenu); // Close when clicking outside
-            }
-
-            // --- Countdown Logic ---
-            let timeLeft = 60;
-            const countdownElement = document.getElementById('countdown');
-            if (countdownElement) { // Check if element exists before starting countdown
-                function updateCountdown() {
-                    if (timeLeft <= 0) {
-                        window.location.href = "/link";
-                    } else {
-                        countdownElement.textContent = timeLeft;
-                        timeLeft--;
-                        setTimeout(updateCountdown, 1000);
-                    }
-                }
-                updateCountdown();
-            }
-
-            // --- Image Carousel Logic ---
-            let slideIndex = 0;
-            const slides = document.querySelectorAll('.carousel-image');
-            const indicatorsContainer = document.querySelector('.carousel-indicators');
-            let autoSlideInterval;
-
-            if (slides.length > 0) { // Only run if carousel images exist
-                function showSlide(n) {
-                    slides.forEach(slide => {
-                        slide.classList.remove('active', 'opacity-100');
-                        slide.classList.add('opacity-0');
-                    });
-
-                    if (n >= slides.length) { slideIndex = 0; }
-                    if (n < 0) { slideIndex = slides.length - 1; }
-
-                    requestAnimationFrame(() => {
-                        slides[slideIndex].classList.add('active', 'opacity-100');
-                    });
-                    updateIndicators();
-                }
-
-                function plusSlides(n) {
-                    clearInterval(autoSlideInterval);
-                    showSlide(slideIndex += n);
-                    startAutoSlide();
-                }
-
-                function currentSlide(n) {
-                    clearInterval(autoSlideInterval);
-                    slideIndex = n;
-                    showSlide(slideIndex);
-                    startAutoSlide();
-                }
-
-                function updateIndicators() {
-                    if (!indicatorsContainer) return;
-                    indicatorsContainer.innerHTML = '';
-                    for (let i = 0; i < slides.length; i++) {
-                        const indicator = document.createElement('div');
-                        indicator.classList.add('carousel-indicator');
-                        if (i === slideIndex) {
-                            indicator.classList.add('active');
-                        }
-                        indicator.addEventListener('click', () => currentSlide(i));
-                        indicatorsContainer.appendChild(indicator);
-                    }
-                }
-
-                function startAutoSlide() {
-                    autoSlideInterval = setInterval(() => {
-                        showSlide(slideIndex += 1);
-                    }, 5000);
-                }
-
-                showSlide(slideIndex); // Initial display
-                document.querySelector('.carousel-button.prev')?.addEventListener('click', () => plusSlides(-1));
-                document.querySelector('.carousel-button.next')?.addEventListener('click', () => plusSlides(1));
-                startAutoSlide();
-            } else {
-                document.getElementById('image-carousel')?.classList.add('hidden');
-            }
-        });
-    </script>
+    <script src="/js/main.js"></script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>
