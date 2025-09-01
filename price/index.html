@@ -48,13 +48,10 @@
           }
           .price-item-link .price-value,
           .price-item-link .price-extra {
-            @apply text-teal-300; /* Consolidated color for all values */
+            @apply text-teal-300;
           }
           .price-item-link .checkmark-icon {
-            @apply text-emerald-400; /* Checkmark icon color for base prices/confirmations */
-          }
-          .price-item-link .plus-icon {
-            @apply text-emerald-400 mr-2; /* Plus icon color for additional costs */
+            @apply text-emerald-400; /* Ensure checkmark color is explicitly set */
           }
           /* Other utility classes */
           .discount-value { @apply text-emerald-400; }
@@ -126,7 +123,7 @@
                     <p class="price-item-description">Applies to Eyebrow, Eyelid, or Lip PMU.</p>
                 </div>
                 <div class="price-value-container">
-                    <p class="price-extra"><i class="fas fa-plus plus-icon"></i> kr. 500,-</p>
+                    <p class="price-extra"><i class="fas fa-plus checkmark-icon"></i> kr. 500,-</p>
                 </div>
             </a>
 
@@ -144,14 +141,12 @@
                     </div>
                 </a>
                 <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2oh3aeg5WUxwiELsWV2s9q03aE2WaYT9_Z9rrLkJNnqGmdhHJv50Wov15gYJ86Mi0nUZ0I8oMQ" target="_blank" class="price-item-link group">
-                    <div class="item-content">
-                        <div class="md:w-3/4">
-                            <h4 class="group-hover:text-teal-300">Dual Deluxe Selection (2x Initial Session)</h4>
-                            <p class="price-item-description">Discount for booking 2 initial PMU areas at once.</p>
-                        </div>
-                        <div class="price-value-container">
-                            <p class="price-value"><span class="discount-value">- 15%</span> kr. 6 800,- <i class="fire-icon fas fa-fire"></i></p>
-                        </div>
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">Dual Deluxe Selection (2x Initial Session)</h4>
+                        <p class="price-item-description">Discount for booking 2 initial PMU areas at once.</p>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value"><span class="discount-value">- 15%</span> kr. 6 800,- <i class="fire-icon fas fa-fire"></i></p>
                     </div>
                 </a>
             </div>
@@ -169,37 +164,33 @@
                         </p>
                     </div>
                     <div class="price-value-container">
-                        <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 2 000,-</p>
+                        <p class="price-value">kr. 2 000,-</p>
                     </div>
                 </a>
 
                 <!-- Second Correction -->
                 <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2oh3aeg5WUxwiELsWV2s9q03aE2WaYT9_Z9rrLkJNnqGmdhHJv50Wov15gYJ86Mi0nUZ0I8oMQ" target="_blank" class="price-item-link group">
-                    <div class="item-content">
-                        <div class="md:w-3/4">
-                            <h4 class="group-hover:text-teal-300">The second correction of permanent makeup</h4>
-                            <p class="price-item-description">
-                                (done no earlier than 2 weeks after the first correction, the period for correction should not exceed 1 month).
-                            </p>
-                        </div>
-                        <div class="price-value-container">
-                            <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 1 000,-</p>
-                        </div>
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">The second correction of permanent makeup</h4>
+                        <p class="price-item-description">
+                            (done no earlier than 2 weeks after the first correction, the period for correction should not exceed 1 month).
+                        </p>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value">kr. 1 000,-</p>
                     </div>
                 </a>
 
                 <!-- Tattoo Renewal -->
                 <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2oh3aeg5WUxwiELsWV2s9q03aE2WaYT9_Z9rrLkJNnqGmdhHJv50Wov15gYJ86Mi0nUZ0I8oMQ" target="_blank" class="price-item-link group">
-                    <div class="item-content">
-                        <div class="md:w-3/4">
-                            <h4 class="group-hover:text-teal-300">Tattoo renewal</h4>
-                            <p class="price-item-description">
-                                (applied from after 3 months since the last procedure).
-                            </p>
-                        </div>
-                        <div class="price-value-container">
-                            <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 3 500,-</p>
-                        </div>
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">Tattoo renewal</h4>
+                        <p class="price-item-description">
+                            (applied from after 3 months since the last procedure).
+                        </p>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value">kr. 3 500,-</p>
                     </div>
                 </a>
             </div>
@@ -216,7 +207,7 @@
                 </p>
             </div>
             <div class="price-value-container">
-                <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 1 500,-</p>
+                <p class="price-value">kr. 1 500,-</p>
             </div>
         </a>
 
@@ -229,17 +220,19 @@
                     <h4 class="group-hover:text-teal-300">Eyebrow Shaping</h4>
                 </div>
                 <div class="price-value-container">
-                    <p class="price-extra"><i class="fas fa-plus plus-icon"></i> kr. 300,-</p>
+                    <p class="price-value">kr. 300,-</p>
                 </div>
             </a>
 
             <!-- Eyebrow tinting (color) -->
             <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0sVCtJmkkG8L8S1xYNBaCpurJuifeib5fHAbel-cB6awa1IGxCqdbLaR7-1r4DtAma9UpxAH5N" target="_blank" class="price-item-link group">
-                <div class="md:w-3/4">
-                    <h4 class="group-hover:text-teal-300">Eyebrow Tinting (Color)</h4>
-                </div>
-                <div class="price-value-container">
-                    <p class="price-extra"><i class="fas fa-plus plus-icon"></i> kr. 200,-</p>
+                <div class="item-content">
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">Eyebrow Tinting (Color)</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value">kr. 200,-</p>
+                    </div>
                 </div>
             </a>
         </div>
@@ -249,11 +242,13 @@
         <div class="space-y-6 mb-10">
             <!-- Facial hair removal -->
             <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ27qik38_VBNxqHHBvUcQx3RlW9zc0xx1dMoVE4JGnYFpzO_ZprFKfVCF4anLG7uqwMwZXLhG9B" target="_blank" class="price-item-link group">
-                <div class="md:w-3/4">
-                    <h4 class="group-hover:text-teal-300">Facial Hair Removal</h4>
-                </div>
-                <div class="price-value-container">
-                    <p class="price-extra"><i class="fas fa-plus plus-icon"></i> kr. 100,-</p>
+                <div class="item-content">
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">Facial Hair Removal</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value">kr. 100,-</p>
+                    </div>
                 </div>
             </a>
         </div>
@@ -271,7 +266,7 @@
     </div> <!-- End of max-w-4xl mx-auto bg-zinc-900... div -->
 
     <!-- Footer for Social Icons - MOVED OUTSIDE THE MAIN CONTENT BOX -->
-    <footer class="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-12">
+    <footer class="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-auto">
         <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with annae.tattoo</h2>
         <div class="flex justify-center space-x-6 mb-6">
             <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
