@@ -24,9 +24,9 @@ jobs:
           npm init -y
           npm install -D tailwindcss@latest
 
-      - name: Add build script to package.json
-        # Fix: Use npx to run the locally installed tailwindcss binary
-        run: npm pkg set scripts.build="npx tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify"
+
+      - name: Build Tailwind CSS
+        run: npx tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
 
       - name: Build Tailwind CSS
         run: npm run build
