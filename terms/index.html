@@ -169,6 +169,30 @@
             // 2. Then load header and footer, which might use these styles.
             await loadPartial('header-placeholder', '/partials/header.html');
             await loadPartial('footer-placeholder', '/partials/footer.html');
+
+            // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
+
+            // --- Copyright Year Logic ---
+            const currentYearElement = document.getElementById('current-year');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const offCanvasMenu = document.getElementById('off-canvas-menu');
+            const offCanvasOverlay = document.getElementById('off-canvas-overlay');
+
+            if (mobileMenuButton && offCanvasMenu && offCanvasOverlay && closeMenuButton) {
+                function toggleMenu() {
+                    offCanvasMenu.classList.toggle('open');
+                    offCanvasOverlay.classList.toggle('open');
+                }
+                mobileMenuButton.addEventListener('click', toggleMenu);
+                closeMenuButton.addEventListener('click', toggleMenu);
+                offCanvasOverlay.addEventListener('click', toggleMenu); // Close when clicking outside
+            }
         });
     </script>
 </body>

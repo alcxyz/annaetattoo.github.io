@@ -1,7 +1,7 @@
-<!-- Header & Navigation -->
+<!-- partials/header.html -->
 <header class="w-full max-w-7xl flex justify-between items-center py-4 px-2 md:px-0 z-30">
     <div class="text-3xl font-bold text-zinc-50">annae.tattoo</div>
-    
+
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex space-x-6">
         <a href="/booking" class="nav-link">Book Appointment</a>
@@ -45,22 +45,3 @@
 <!-- Off-Canvas Overlay -->
 <div id="off-canvas-overlay" class="off-canvas-overlay fixed inset-0 bg-black z-40 md:hidden"></div>
 
-<script type="text/javascript">
-    // Mobile Menu Logic - This script is self-contained within the header partial
-    // Removed DOMContentLoaded here as it executes immediately upon injection.
-    // Ensure scripts attached to elements from the injected HTML are run AFTER the injection.
-    // The main page's DOMContentLoaded will handle this for the *injected* content.
-    // So, no DOMContentLoaded inside the partial itself for scripts to interact with its own elements.
-
-    // This script should instead be run from the *main page's* DOMContentLoaded after injection.
-    // So, this script block should effectively be empty, or contain only definitions,
-    // with the actual event listeners and logic being called from the main page.
-
-    // Given previous issues, let's revert the mobile menu JS back to the main page script.
-    // It's safer to have main page JS control main page and injected partials' JS.
-    // Therefore, header.html will be PURE HTML.
-    // NO SCRIPT BLOCK SHOULD BE IN PARTIALS IF DOM MANIPULATION IS EXPECTED.
-    // THIS IS THE SOURCE OF THE FRUSTRATION.
-
-    // Let's make header.html *pure HTML* and move the mobile menu JS back to the main page's script.
-</script>

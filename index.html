@@ -112,8 +112,28 @@
             await loadPartial('footer-placeholder', '/partials/footer.html');
 
             // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
-            // This ensures elements like mobile menu buttons or carousel images
-            // are in the DOM before scripts try to attach listeners.
+
+            // --- Copyright Year Logic ---
+            const currentYearElement = document.getElementById('current-year');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const offCanvasMenu = document.getElementById('off-canvas-menu');
+            const offCanvasOverlay = document.getElementById('off-canvas-overlay');
+
+            if (mobileMenuButton && offCanvasMenu && offCanvasOverlay && closeMenuButton) {
+                function toggleMenu() {
+                    offCanvasMenu.classList.toggle('open');
+                    offCanvasOverlay.classList.toggle('open');
+                }
+                mobileMenuButton.addEventListener('click', toggleMenu);
+                closeMenuButton.addEventListener('click', toggleMenu);
+                offCanvasOverlay.addEventListener('click', toggleMenu); // Close when clicking outside
+            }
 
             // --- Countdown Logic ---
             let timeLeft = 60;
@@ -145,7 +165,7 @@
                     });
 
                     if (n >= slides.length) { slideIndex = 0; }
-                    if (n < 0) { slideIndex = slides.length - 1; } // Corrected typo here
+                    if (n < 0) { slideIndex = slides.length - 1; }
 
                     requestAnimationFrame(() => {
                         slides[slideIndex].classList.add('active', 'opacity-100');
