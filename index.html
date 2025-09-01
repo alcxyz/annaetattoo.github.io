@@ -151,14 +151,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-            await loadPartial('header-placeholder', '_includes/header.html');
-            await loadPartial('footer-placeholder', '_includes/footer.html');
+            await loadPartial('header-placeholder', '/partials/header.html');
+            await loadPartial('footer-placeholder', '/partials/footer.html');
 
             // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
             // This ensures elements like mobile menu buttons are in the DOM before scripts try to attach listeners.
 
             // --- Countdown Logic ---
-            let timeLeft = 5; 
+            let timeLeft = 60; 
             const countdownElement = document.getElementById('countdown');
             if (countdownElement) { // Check if element exists before starting countdown
                 function updateCountdown() {
