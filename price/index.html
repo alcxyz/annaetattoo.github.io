@@ -29,18 +29,37 @@
           a { @apply text-teal-300 hover:text-teal-400 underline; }
           strong { @apply text-teal-300; } /* Highlight strong text */
 
-          /* Carousel specific styles (can be regular CSS) */
-          .carousel-image {
-              display: none; /* Hidden by default */
+          /* Custom styling for clickable price list items */
+          /* Use group-hover for internal elements to change color */
+          .price-item-link {
+            @apply block p-4 bg-zinc-800 rounded-lg cursor-pointer transition-colors duration-200 ease-in-out;
           }
-          .carousel-image.active {
-              display: block; /* Shown when active */
+          .price-item-link:hover {
+            @apply bg-zinc-700;
           }
+          .price-item-link h4 { /* Override global h4 to prevent default link color */
+            @apply text-xl font-semibold text-zinc-50 group-hover:text-teal-300 transition-colors duration-200;
+          }
+          .price-item-link .price-item-description { /* Override global a color for descriptions */
+            @apply text-zinc-300 text-lg;
+          }
+          .price-item-link .price-value,
+          .price-item-link .price-extra { /* Override global a color for prices */
+            @apply text-xl font-bold text-teal-300;
+          }
+
+
+          /* Other utility classes (from previous setup) */
+          .discount-value { @apply text-emerald-400; }
+          .fire-icon { @apply text-rose-400; }
+          .checkmark-icon { @apply text-emerald-400 mr-2; }
+          /* Social icons from main page */
+          .social-icon { @apply text-zinc-50 hover:text-teal-300 transition duration-300 text-3xl; }
         }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-50 font-sans p-6 md:p-10 lg:p-16 flex flex-col min-h-screen">
-    <div class="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-xl flex-grow">
+<body class="bg-zinc-950 text-zinc-50 font-sans p-6 md:p-10 lg:p-16">
+    <div class="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-xl">
         <h1 class="text-center">Price List</h1>
         <p class="text-center text-xl text-zinc-400 mb-4">Effective: July 2025</p>
 
@@ -254,117 +273,37 @@
                 </div>
             </a>
         </div>
-    </div> <!-- End of max-w-4xl mx-auto div -->
 
-    <!-- Footer for Social Icons and Contact Info (Matched to index.html) -->
-    <footer class="w-full max-w-7xl bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-auto">
-        <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with annae.tattoo</h2>
-        <div class="flex justify-center space-x-6 mb-6">
-            <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="/ig" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="/msg" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p class="text-lg text-zinc-300 mb-2">
-            <a href="/msg" class="text-zinc-300 hover:text-teal-300 transition-colors duration-200">
-                annae.tattoo - (+47) 466 77 142
+        <!-- Final Call to Action & Navigation -->
+        <p class="text-center mt-8">
+            <a href="/booking" class="inline-block px-8 py-4 bg-teal-300 text-zinc-950 font-bold rounded-lg shadow-xl hover:bg-teal-400 transition duration-300 text-xl">
+                Book Any Service
             </a>
         </p>
-        <p class="text-md text-zinc-300">&copy; 2016 - <span id="current-year"></span> annae.tattoo. All rights reserved.</p>
-    </footer>
+        <p class="text-center mt-4">
+            <a href="/" class="text-teal-300 hover:underline">Back to Home</a>
+        </p>
 
+        <!-- Footer for Social Icons -->
+        <footer class="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-12">
+            <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with annae.tattoo</h2>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="/ig" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="/msg" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-md text-zinc-300">
+                <a href="/msg" class="hover:underline">(+47) 466 77 142</a>
+            </p>
+            <p class="text-md text-zinc-300 mt-2">
+                &copy; 2016-<span id="current-year"></span> annae.tattoo. All rights reserved.
+            </p>
+        </footer>
+    </div>
 
     <script type="text/javascript">
-        // JavaScript for injecting custom Tailwind component styles with hex codes.
-        // This is the robust method for custom classes with the CDN.
-        const styleTag = document.createElement('style');
-        styleTag.innerHTML = `
-            .price-item-link {
-                display: block;
-                padding: 1rem; /* p-4 */
-                background-color: #27272a; /* bg-zinc-800 */
-                border-radius: 0.5rem; /* rounded-lg */
-                cursor: pointer;
-                transition-property: background-color;
-                transition-duration: 200ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
-            }
-            .price-item-link:hover {
-                background-color: #3f3f46; /* hover:bg-zinc-700 */
-            }
-            .price-item-link .item-content {
-                display: flex;
-                flex-direction: column;
-            }
-            @media (min-width: 768px) { /* md breakpoint */
-                .price-item-link .item-content {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                }
-            }
-            .price-item-link h4 {
-                color: #fafafa; /* text-zinc-50 */
-                font-size: 1.25rem; /* text-xl */
-                font-weight: 600; /* font-semibold */
-                margin-bottom: 0.5rem; /* mb-2 */
-                transition-property: color;
-                transition-duration: 200ms;
-            }
-            .price-item-link:hover h4 {
-                color: #5eead4; /* group-hover:text-teal-300 */
-            }
-            .price-item-link .price-item-description {
-                color: #d4d4d8; /* text-zinc-300 */
-                font-size: 1.125rem; /* text-lg */
-            }
-            .price-item-link .price-value-container {
-                margin-top: 1rem; /* mt-4 */
-                text-align: left; /* default on mobile */
-            }
-            @media (min-width: 768px) { /* md breakpoint */
-                .price-item-link .price-value-container {
-                    margin-top: 0; /* md:mt-0 */
-                    text-align: right; /* md:text-right */
-                }
-            }
-            .price-item-link .price-value,
-            .price-item-link .price-extra {
-                color: #5eead4; /* text-teal-300 */
-                font-size: 1.25rem; /* text-xl */
-                font-weight: 700; /* font-bold */
-            }
-
-            .social-icon {
-                color: #fafafa; /* text-zinc-50 */
-                transition-property: color; 
-                transition-duration: 300ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                font-size: 1.875rem; /* text-3xl */
-            }
-            .social-icon:hover {
-                color: #5eead4; /* hover:text-teal-300 */
-            }
-            .discount-value {
-                color: #34d399; /* text-emerald-400 */
-            }
-            .fire-icon {
-                color: #fb7185; /* text-rose-400 */
-            }
-            .checkmark-icon {
-                color: #34d399; /* text-emerald-400 */
-                margin-right: 0.5rem; /* mr-2 */
-            }
-        `;
-        document.head.appendChild(styleTag);
-
-
-        // Dynamic Copyright Year Logic
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentYearSpan = document.getElementById('current-year');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-        });
+        // Set the current year for the copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
