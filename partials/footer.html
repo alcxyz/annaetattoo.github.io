@@ -5,6 +5,8 @@
         <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
         <a href="/ig" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
         <a href="/msg" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <!-- NEW: Linktree Social Icon -->
+        <a href="/link" aria-label="Linktree" class="social-icon"><i class="fas fa-link"></i></a> 
     </div>
     <p class="text-md text-zinc-300">
         <a href="/msg" class="hover:underline">(+47) 466 77 142</a>
@@ -15,11 +17,9 @@
 </footer>
 
 <script type="text/javascript">
-    // Dynamic Year Script - Self-contained within the footer partial
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentYearSpan = document.getElementById('current-year');
-        if (currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-        }
-    });
+    // Dynamic Year Script - Executes immediately after injection
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 </script>

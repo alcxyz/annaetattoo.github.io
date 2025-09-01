@@ -40,7 +40,7 @@
         <a href="/fb" class="mobile-nav-link">Facebook</a>
         <a href="/ig" class="mobile-nav-link">Instagram</a>
         <a href="/care" class="mobile-nav-link">Aftercare Instructions</a>
-<!-- Contract links are intentionally hidden from public menu -->
+        <!-- Contract links are intentionally hidden from public menu -->
     </nav>
 </div>
 
@@ -49,28 +49,20 @@
 
 <script type="text/javascript">
     // Mobile Menu Logic - This script is self-contained within the header partial
-    document.addEventListener('DOMContentLoaded', () => {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu-button');
-        const offCanvasMenu = document.getElementById('off-canvas-menu');
-        const offCanvasOverlay = document.getElementById('off-canvas-overlay');
+    // Removed DOMContentLoaded here as it executes immediately upon injection.
+    // Ensure scripts attached to elements from the injected HTML are run AFTER the injection.
+    // The main page's DOMContentLoaded will handle this for the *injected* content.
+    // So, no DOMContentLoaded inside the partial itself for scripts to interact with its own elements.
 
-        function toggleMenu() {
-            offCanvasMenu.classList.toggle('open');
-            offCanvasOverlay.classList.toggle('open');
-            document.body.classList.toggle('overflow-hidden'); 
-        }
+    // This script should instead be run from the *main page's* DOMContentLoaded after injection.
+    // So, this script block should effectively be empty, or contain only definitions,
+    // with the actual event listeners and logic being called from the main page.
 
-        mobileMenuButton?.addEventListener('click', toggleMenu);
-        closeMenuButton?.addEventListener('click', toggleMenu);
-        offCanvasOverlay?.addEventListener('click', toggleMenu); 
+    // Given previous issues, let's revert the mobile menu JS back to the main page script.
+    // It's safer to have main page JS control main page and injected partials' JS.
+    // Therefore, header.html will be PURE HTML.
+    // NO SCRIPT BLOCK SHOULD BE IN PARTIALS IF DOM MANIPULATION IS EXPECTED.
+    // THIS IS THE SOURCE OF THE FRUSTRATION.
 
-        offCanvasMenu?.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (offCanvasMenu.classList.contains('open')) {
-                    toggleMenu();
-                }
-            });
-        });
-    });
+    // Let's make header.html *pure HTML* and move the mobile menu JS back to the main page's script.
 </script>
