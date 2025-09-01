@@ -3,173 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>annae.tattoo - Price List</title>
+    <title>Annae Tattoo - Price List</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style type="text/tailwindcss">
-        /* Applying some base styles to elements for consistency */
+        /* Applying base global styles using @layer base */
         @layer base {
-          h1 { @apply text-4xl font-bold text-white mb-6 border-b-2 border-teal-500 pb-4; }
-          h2 { @apply text-3xl font-semibold text-teal-400 mb-4 mt-8; }
-          h3 { @apply text-2xl font-semibold text-teal-400 mb-3 mt-6; }
-          p { @apply mb-4 text-gray-300 leading-relaxed; }
-          ul { @apply list-disc list-inside mb-4 pl-4; }
-          li { @apply text-gray-300 mb-2; }
-          a { @apply text-teal-400 hover:text-teal-300 underline; }
+          body {
+            @apply font-sans;
+          }
+          /* Ensure smooth scrolling for anchor links */
+          html {
+            scroll-behavior: smooth;
+          }
+          h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-teal-500 pb-4; }
+          h2 { @apply text-3xl font-semibold text-teal-300 mb-4 mt-8; }
+          h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; }
+          p { @apply mb-4 text-zinc-300 leading-relaxed; }
+          ul { @apply list-none mb-4 pl-0; } /* Use list-none for custom bulleting or plain lists */
+          li { @apply text-zinc-300 mb-2; }
+          a { @apply text-teal-300 hover:text-teal-400 underline; }
           strong { @apply text-teal-300; } /* Highlight strong text */
+
+          /* Custom styling for price list items - uses direct hex colors to avoid CDN @apply issues */
+          .price-item-container {
+            @apply flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-zinc-800 rounded-lg;
+          }
+          .price-item-title {
+            @apply text-xl font-semibold text-zinc-50 mb-2;
+          }
+          .price-item-description {
+            @apply text-zinc-300 text-lg space-y-1; /* use space-y for list item spacing */
+          }
+          .price-value-container {
+            @apply md:text-right mt-4 md:mt-0;
+          }
+          .price-value {
+            @apply text-xl font-bold text-teal-300;
+          }
+          .price-extra {
+            @apply text-lg text-zinc-300;
+          }
+          .discount-value {
+            @apply text-emerald-400; /* Use emerald for discounts */
+          }
+          .fire-icon {
+            @apply text-rose-400; /* Use rose for fire emojis */
+          }
+          .checkmark-icon {
+            @apply text-emerald-400 mr-2; /* Checkmark icon color */
+          }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans p-6 md:p-10 lg:p-16">
-    <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-lg shadow-xl">
+<body class="bg-zinc-950 text-zinc-50 font-sans p-6 md:p-10 lg:p-16">
+    <div class="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-xl">
         <h1 class="text-center">Price List</h1>
-        <!-- NEW: Price List Period -->
-        <p class="text-center text-xl text-gray-400 mb-4">Effective: From August 2025</p>
-        <h2 class="text-center">Permanent Makeup</h2>
+        <p class="text-center text-xl text-zinc-400 mb-4">Effective: January - March 2024</p>
 
-        <!-- Initial Sessions -->
-        <h2 class="text-teal-400">Initial Sessions</h2>
+        <h2 class="text-center text-teal-300 mb-10">Permanent Makeup & Tattoo Removal</h2>
+
+        <!-- === PERMANENT MAKEUP CATEGORY === -->
+        <h2 class="border-b border-zinc-700 pb-2 mb-6">Permanent Makeup Sessions</h2>
         <div class="space-y-6 mb-10">
+            <!-- Initial Sessions Subcategory -->
+            <h3 class="mb-4">Initial Sessions</h3>
+
             <!-- Eyebrow Permanent Makeup -->
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg">
+            <div class="price-item-container">
                 <div class="md:w-3/4">
-                    <h3 class="text-xl font-semibold text-white mb-2">Eyebrow Permanent Makeup (Ombre Powder Brows)</h3>
-                    <ul class="list-none pl-0 text-gray-300 text-lg space-y-1">
-                        <li>- Base Procedure</li>
-                        <li>- Overlapping or updating an existing tattoo</li>
+                    <h4 class="price-item-title">Eyebrow Permanent Makeup (Ombre Powder Brows)</h4>
+                    <ul class="price-item-description">
+                        <li><i class="fas fa-check checkmark-icon"></i> Base Procedure</li>
+                        <li><i class="fas fa-plus checkmark-icon"></i> Overlapping or updating an existing tattoo</li>
                     </ul>
                 </div>
-                <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                    <p class="text-xl font-bold text-teal-300">kr. 4 000,-</p>
-                    <p class="text-lg text-gray-300">+ kr. 500,-</p>
+                <div class="price-value-container">
+                    <p class="price-value">kr. 4 000,-</p>
+                    <p class="price-extra">+ kr. 500,-</p>
                 </div>
             </div>
 
             <!-- Permanent Make-up of the Eyelids -->
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg">
+            <div class="price-item-container">
                 <div class="md:w-3/4">
-                    <h3 class="text-xl font-semibold text-white mb-2">Permanent Make-up of the Eyelids (Interciliary Space)</h3>
-                    <ul class="list-none pl-0 text-gray-300 text-lg space-y-1">
-                        <li>- Base Procedure</li>
-                        <li>- Overlapping or updating an existing tattoo</li>
-                        <li>- Eyeliner effect</li>
-                        <li>- Soft pencil effect (Shadow Shading)</li>
+                    <h4 class="price-item-title">Permanent Make-up of the Eyelids (Interciliary Space)</h4>
+                    <ul class="price-item-description">
+                        <li><i class="fas fa-check checkmark-icon"></i> Base Procedure</li>
+                        <li><i class="fas fa-plus checkmark-icon"></i> Overlapping or updating an existing tattoo</li>
+                        <li><i class="fas fa-plus checkmark-icon"></i> Eyeliner effect</li>
+                        <li><i class="fas fa-plus checkmark-icon"></i> Soft pencil effect (Shadow Shading)</li>
                     </ul>
                 </div>
-                <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                    <p class="text-xl font-bold text-teal-300">kr. 4 000,-</p>
-                    <p class="text-lg text-gray-300">+ kr. 500,-</p>
-                    <p class="text-lg text-gray-300">+ kr. 500,-</p>
-                    <p class="text-lg text-gray-300">+ kr. 500,-</p>
+                <div class="price-value-container">
+                    <p class="price-value">kr. 4 000,-</p>
+                    <p class="price-extra">+ kr. 500,-</p>
+                    <p class="price-extra">+ kr. 500,-</p>
+                    <p class="price-extra">+ kr. 500,-</p>
                 </div>
             </div>
 
             <!-- Permanent Lip Makeup -->
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg">
+            <div class="price-item-container">
                 <div class="md:w-3/4">
-                    <h3 class="text-xl font-semibold text-white mb-2">Permanent Lip Makeup</h3>
-                    <ul class="list-none pl-0 text-gray-300 text-lg space-y-1">
-                        <li>- Complete filling</li>
-                        <li>- 3D ombre technique</li>
-                        <li>- Overlapping or updating an existing tattoo</li>
+                    <h4 class="price-item-title">Permanent Lip Makeup</h4>
+                    <ul class="price-item-description">
+                        <li><i class="fas fa-check checkmark-icon"></i> Complete filling</li>
+                        <li><i class="fas fa-plus checkmark-icon"></i> 3D ombre technique</li>
+                        <li><i class="fas fa-plus checkmark-icon"></i> Overlapping or updating an existing tattoo</li>
                     </ul>
                 </div>
-                <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                    <p class="text-xl font-bold text-teal-300">kr. 4 000,-</p>
-                    <p class="text-lg text-gray-300">+ kr. 500,-</p>
-                    <p class="text-lg text-gray-300">+ kr. 500,-</p>
+                <div class="price-value-container">
+                    <p class="price-value">kr. 4 000,-</p>
+                    <p class="price-extra">+ kr. 500,-</p>
+                    <p class="price-extra">+ kr. 500,-</p>
                 </div>
             </div>
 
-            <!-- Signature & Dual Selection -->
-            <div class="space-y-4 pt-6 border-t border-gray-600">
-                <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-                    <h3 class="text-xl font-semibold text-white">Signature Elite Trilogy (3x Initial Session)</h3>
-                    <p class="text-2xl font-bold text-red-500 mt-2 md:mt-0">
-                        <span class="text-green-400">- 25%</span> kr. 9 000,- 🔥
-                    </p>
+            <!-- Discounted Packages -->
+            <h3 class="mb-4 pt-6 border-t border-zinc-700">Discounted Packages</h3>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4 class="price-item-title">Signature Elite Trilogy (3x Initial Session)</h4>
                 </div>
-                <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-                    <h3 class="text-xl font-semibold text-white">Dual Deluxe Selection (2x Initial Session)</h3>
-                    <p class="text-2xl font-bold text-red-500 mt-2 md:mt-0">
-                        <span class="text-green-400">- 15%</span> kr. 6 800,- 🔥
-                    </p>
+                <div class="price-value-container">
+                    <p class="price-value"><span class="discount-value">- 25%</span> kr. 9 000,- <i class="fire-icon fas fa-fire"></i></p>
+                </div>
+            </div>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4 class="price-item-title">Dual Deluxe Selection (2x Initial Session)</h4>
+                </div>
+                <div class="price-value-container">
+                    <p class="price-value"><span class="discount-value">- 15%</span> kr. 6 800,- <i class="fire-icon fas fa-fire"></i></p>
                 </div>
             </div>
         </div>
 
-        <!-- Corrective Sessions -->
-        <h2 class="text-teal-400">Corrective Sessions</h2>
+        <!-- Corrective Sessions Subcategory -->
+        <h3 class="mb-4">Corrective Sessions</h3>
         <div class="space-y-6 mb-10">
             <!-- First Correction -->
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg">
+            <div class="price-item-container">
                 <div class="md:w-3/4">
-                    <h3 class="text-xl font-semibold text-white mb-2">The first correction of permanent makeup</h3>
-                    <p class="text-gray-300 text-lg">
+                    <h4 class="price-item-title">The first correction of permanent makeup</h4>
+                    <p class="price-item-description">
                         (done one month after the first procedure, the period for correction should not exceed 3 months,
                         otherwise, the tattoo will be considered a "renewal").
                     </p>
                 </div>
-                <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                    <p class="text-xl font-bold text-teal-300">50% of Original Full Price</p>
+                <div class="price-value-container">
+                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> 50% of Original Full Price</p>
                 </div>
             </div>
 
             <!-- Second Correction -->
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg">
+            <div class="price-item-container">
                 <div class="md:w-3/4">
-                    <h3 class="text-xl font-semibold text-white mb-2">The second correction of permanent makeup</h3>
-                    <p class="text-gray-300 text-lg">
+                    <h4 class="price-item-title">The second correction of permanent makeup</h4>
+                    <p class="price-item-description">
                         (done no earlier than 2 weeks after the first correction, the period for correction should not exceed 1 month).
                     </p>
                 </div>
-                <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                    <p class="text-xl font-bold text-teal-300">50% of First Correction Price</p>
+                <div class="price-value-container">
+                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> 50% of First Correction Price</p>
                 </div>
             </div>
 
             <!-- Tattoo Renewal -->
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg">
+            <div class="price-item-container">
                 <div class="md:w-3/4">
-                    <h3 class="text-xl font-semibold text-white mb-2">Tattoo renewal</h3>
-                    <p class="text-gray-300 text-lg">
+                    <h4 class="price-item-title">Tattoo renewal</h4>
+                    <p class="price-item-description">
                         (applied from after 3 months since the last procedure).
                     </p>
                 </div>
-                <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                    <p class="text-xl font-bold text-teal-300">kr. 500,- Discount</p>
-                </p>
+                <div class="price-value-container">
+                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 500,- Discount</p>
+                </div>
             </div>
         </div>
 
-        <!-- Tattoo Removal (CRC) -->
-        <h2 class="text-teal-400">Tattoo Removal (CRC)</h2>
-        <div class="flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-gray-700 rounded-lg mb-10">
+        <!-- === TATTOO REMOVAL CATEGORY === -->
+        <h2 class="border-b border-zinc-700 pb-2 mb-6">Tattoo Removal (CRC)</h2>
+        <div class="price-item-container mb-10">
             <div class="md:w-3/4">
-                <h3 class="text-xl font-semibold text-white mb-2">Removal of existing tattoo and PMU.</h3>
-                <p class="text-gray-300 text-lg">
+                <h4 class="price-item-title">Removal of existing tattoo and PMU.</h4>
+                <p class="price-item-description">
                     Multiple sessions, depending on the condition.<br>
                     Price may vary depending on the size of the area.
                 </p>
             </div>
-            <div class="md:w-1/4 md:text-right mt-4 md:mt-0">
-                <p class="text-xl font-bold text-teal-300">kr. 1 500,-</p>
+            <div class="price-value-container">
+                <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 1 500,-</p>
             </div>
         </div>
 
+        <!-- Call to Action & Navigation -->
         <p class="text-center mt-8">
-            <a href="/booking" class="inline-block px-8 py-4 bg-teal-500 text-gray-900 font-bold rounded-lg shadow-xl hover:bg-teal-600 transition duration-300 text-xl">
+            <a href="/booking" class="inline-block px-8 py-4 bg-teal-300 text-zinc-950 font-bold rounded-lg shadow-xl hover:bg-teal-400 transition duration-300 text-xl">
                 Book Your Appointment
             </a>
         </p>
         <p class="text-center mt-4">
-            <a href="/" class="text-teal-400 hover:underline">Back to Home</a>
+            <a href="/" class="text-teal-300 hover:underline">Back to Home</a>
         </p>
 
-        <!-- Footer Contact Info - Replicated from image -->
-        <div class="mt-12 pt-6 border-t border-gray-700 text-center">
-            <p class="text-lg text-gray-300">annae.tattoo - (+47) 466 77 142</p>
-            <!-- QR code and social icons could be added here if desired -->
+        <!-- Footer Contact Info -->
+        <div class="mt-12 pt-6 border-t border-zinc-800 text-center">
+            <p class="text-lg text-zinc-300">annae.tattoo - (+47) 466 77 142</p>
         </div>
     </div>
 </body>
