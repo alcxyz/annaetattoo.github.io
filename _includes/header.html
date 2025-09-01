@@ -1,0 +1,76 @@
+<!-- Header & Navigation -->
+<header class="w-full max-w-7xl flex justify-between items-center py-4 px-2 md:px-0 z-30">
+    <div class="text-3xl font-bold text-zinc-50">annae.tattoo</div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex space-x-6">
+        <a href="/booking" class="nav-link">Book Appointment</a>
+        <a href="/price" class="nav-link">Price List</a>
+        <a href="/terms" class="nav-link">Policies</a>
+        <a href="/link" class="nav-link">Links Hub</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="md:hidden p-2 text-zinc-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+    </button>
+</header>
+
+<!-- Off-Canvas Mobile Menu -->
+<div id="off-canvas-menu" class="off-canvas-menu fixed inset-y-0 left-0 w-64 bg-zinc-900 shadow-lg z-50 p-6 md:hidden">
+    <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold text-zinc-50">Menu</span>
+        <button id="close-menu-button" class="p-2 text-zinc-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <nav class="flex flex-col space-y-4">
+        <a href="/booking" class="mobile-nav-link">Book Appointment</a>
+        <a href="/price" class="mobile-nav-link">Price List</a>
+        <a href="/terms" class="mobile-nav-link">Policies</a>
+        <a href="/link" class="mobile-nav-link">Links Hub</a>
+        <hr class="border-zinc-800 my-2"> <!-- Separator -->
+        <a href="/review" class="mobile-nav-link">Leave a Review</a>
+        <a href="/map" class="mobile-nav-link">Find Us (Map)</a>
+        <a href="/msg" class="mobile-nav-link">Message Us (WhatsApp)</a>
+        <a href="/fb" class="mobile-nav-link">Facebook</a>
+        <a href="/ig" class="mobile-nav-link">Instagram</a>
+        <a href="/care" class="mobile-nav-link">Aftercare Instructions</a>
+        <!-- Contract links are intentionally hidden from public menu -->
+    </nav>
+</div>
+
+<!-- Off-Canvas Overlay -->
+<div id="off-canvas-overlay" class="off-canvas-overlay fixed inset-0 bg-black z-40 md:hidden"></div>
+
+<script type="text/javascript">
+    // Mobile Menu Logic - This script is self-contained within the header partial
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const offCanvasMenu = document.getElementById('off-canvas-menu');
+        const offCanvasOverlay = document.getElementById('off-canvas-overlay');
+
+        function toggleMenu() {
+            offCanvasMenu.classList.toggle('open');
+            offCanvasOverlay.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden'); 
+        }
+
+        mobileMenuButton?.addEventListener('click', toggleMenu);
+        closeMenuButton?.addEventListener('click', toggleMenu);
+        offCanvasOverlay?.addEventListener('click', toggleMenu); 
+
+        offCanvasMenu?.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (offCanvasMenu.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+    });
+</script>

@@ -10,21 +10,23 @@
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN for Icons (used in header and social links) -->
+    <!-- Font Awesome CDN for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Main Page Styles (for global, base, and custom component classes) -->
     <style type="text/tailwindcss">
-        /* Applying some base styles to elements for consistency */
         @layer base {
           body {
             @apply font-sans;
           }
-          /* Ensure smooth scrolling for anchor links */
           html {
             scroll-behavior: smooth;
           }
+          a {
+            @apply no-underline; /* Global reset for links */
+          }
         }
-        /* Regular CSS for transitions that don't apply custom tailwind classes */
+        /* Custom component styles (defined here for CDN processing) */
         .off-canvas-menu {
             transform: translateX(-100%);
             transition: transform 0.3s ease-out;
@@ -41,65 +43,30 @@
             visibility: visible;
             opacity: 0.7;
         }
-        /* Carousel specific styles */
-        .carousel-image {
-            display: none; /* Hidden by default */
+        .nav-link { 
+            @apply text-lg text-teal-300 hover:text-indigo-400 transition duration-300; 
         }
-        .carousel-image.active {
-            display: block; /* Shown when active */
+        .mobile-nav-link { 
+            @apply text-xl text-zinc-50 hover:text-teal-300 transition duration-300 block py-2; 
+        }
+        .link-button { 
+            @apply inline-block px-6 py-3 bg-teal-300 text-zinc-950 font-bold rounded-lg shadow-lg hover:bg-teal-400 transition duration-300 whitespace-nowrap; 
+        }
+        .social-icon { 
+            @apply text-zinc-50 hover:text-teal-300 transition duration-300 text-3xl; 
+        }
+        .carousel-indicator {
+            @apply w-3 h-3 bg-zinc-400 rounded-full cursor-pointer hover:bg-teal-300 transition-colors duration-200;
+        }
+        .carousel-indicator.active {
+            @apply bg-teal-300;
         }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-50 flex flex-col items-center min-h-screen p-4">
 
-    <!-- Header & Navigation -->
-    <header class="w-full max-w-7xl flex justify-between items-center py-4 px-2 md:px-0 z-30">
-        <div class="text-3xl font-bold text-zinc-50">annae.tattoo</div>
-        
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-6">
-            <a href="/booking" class="nav-link">Book Appointment</a>
-            <a href="/price" class="nav-link">Price List</a>
-            <a href="/terms" class="nav-link">Policies</a>
-            <a href="/link" class="nav-link">Links Hub</a>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden p-2 text-zinc-50">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
-    </header>
-
-    <!-- Off-Canvas Mobile Menu -->
-    <div id="off-canvas-menu" class="off-canvas-menu fixed inset-y-0 left-0 w-64 bg-zinc-900 shadow-lg z-50 p-6 md:hidden">
-        <div class="flex justify-between items-center mb-8">
-            <span class="text-xl font-bold text-zinc-50">Menu</span>
-            <button id="close-menu-button" class="p-2 text-zinc-50">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
-        <nav class="flex flex-col space-y-4">
-            <a href="/booking" class="mobile-nav-link">Book Appointment</a>
-            <a href="/price" class="mobile-nav-link">Price List</a>
-            <a href="/terms" class="mobile-nav-link">Policies</a>
-            <a href="/link" class="mobile-nav-link">Links Hub</a>
-            <hr class="border-zinc-800 my-2"> <!-- Separator -->
-            <a href="/review" class="mobile-nav-link">Leave a Review</a>
-            <a href="/map" class="mobile-nav-link">Find Us (Map)</a>
-            <a href="/msg" class="mobile-nav-link">Message Us (WhatsApp)</a>
-            <a href="/fb" class="mobile-nav-link">Facebook</a>
-            <a href="/ig" class="mobile-nav-link">Instagram</a>
-            <a href="/care" class="mobile-nav-link">Aftercare Instructions</a>
-            <!-- Contract links are intentionally hidden from public menu -->
-        </nav>
-    </div>
-
-    <!-- Off-Canvas Overlay -->
-    <div id="off-canvas-overlay" class="off-canvas-overlay fixed inset-0 bg-black z-40 md:hidden"></div>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder" class="w-full max-w-7xl"></div>
 
     <!-- Main Content Area -->
     <main class="flex flex-col items-center flex-grow w-full max-w-4xl mt-8 md:mt-0 pb-16">
@@ -112,9 +79,9 @@
         <div id="image-carousel" class="relative w-full max-w-4xl mx-auto mb-16 h-96">
             <div class="relative overflow-hidden w-full h-full rounded-lg shadow-xl">
                 <!-- IMPORTANT: Replace these with your actual image paths -->
-                <img src="/images/carousel-1.webp" class="carousel-image active absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="annae.tattoo Work 1">
-                <img src="/images/carousel-2.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="annae.tattoo Work 2">
-                <img src="/images/carousel-3.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="annae.tattoo Work 3">
+                <img src="/images/carousel-1.webp" class="carousel-image active absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 1">
+                <img src="/images/carousel-2.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 2">
+                <img src="/images/carousel-3.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 3">
             </div>
             <!-- Navigation Buttons -->
             <button class="carousel-button prev absolute top-1/2 left-4 -translate-y-1/2 bg-zinc-950 bg-opacity-70 text-zinc-50 p-3 rounded-full hover:bg-opacity-90 transition-all z-20">
@@ -171,205 +138,102 @@
         </div>
     </main>
 
-    <!-- Footer for Social Icons and Contact Info (Matched to price.html) -->
-    <footer class="w-full max-w-7xl bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-auto">
-        <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with annae.tattoo</h2>
-        <div class="flex justify-center space-x-6 mb-6">
-            <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="/ig" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="/msg" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p class="text-lg text-zinc-300 mb-2">
-            <a href="/msg" class="text-zinc-300 hover:text-teal-300 transition-colors duration-200">
-                annae.tattoo - (+47) 466 77 142
-            </a>
-        </p>
-        <p class="text-md text-zinc-300">&copy; 2016 - <span id="current-year"></span> annae.tattoo. All rights reserved.</p>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder" class="w-full max-w-7xl"></div>
 
 
     <script type="text/javascript">
-        // JavaScript for injecting custom Tailwind component styles with hex codes.
-        // This is the robust method for custom classes with the CDN.
-        const styleTag = document.createElement('style');
-        styleTag.innerHTML = `
-            .nav-link { 
-                font-size: 1.125rem; /* text-lg */
-                color: #5eead4; /* text-teal-300 */
-                transition-property: color; 
-                transition-duration: 300ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
-            }
-            .nav-link:hover {
-                color: #a78bfa; /* hover:text-indigo-400 (mimicking lavender accent) */
-            }
-            .mobile-nav-link { 
-                font-size: 1.25rem; /* text-xl */
-                color: #fafafa; /* text-zinc-50 */
-                transition-property: color; 
-                transition-duration: 300ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                display: block; 
-                padding-top: 0.5rem; /* py-2 */
-                padding-bottom: 0.5rem; /* py-2 */
-            }
-            .mobile-nav-link:hover {
-                color: #5eead4; /* hover:text-teal-300 */
-            }
-            .link-button { 
-                display: inline-block; 
-                padding-left: 1.5rem; /* px-6 */
-                padding-right: 1.5rem; /* px-6 */
-                padding-top: 0.75rem; /* py-3 */
-                padding-bottom: 0.75rem; /* py-3 */
-                background-color: #5eead4; /* bg-teal-300 */
-                color: #0c0a09; /* text-zinc-950 */
-                font-weight: 700; /* font-bold */
-                border-radius: 0.5rem; /* rounded-lg */
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-                transition-property: background-color; 
-                transition-duration: 300ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                white-space: nowrap;
-            }
-            .link-button:hover {
-                background-color: #2dd4bf; /* hover:bg-teal-400 */
-            }
-            .social-icon {
-                color: #fafafa; /* text-zinc-50 */
-                transition-property: color; 
-                transition-duration: 300ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                font-size: 1.875rem; /* text-3xl */
-            }
-            .social-icon:hover {
-                color: #5eead4; /* hover:text-teal-300 */
-            }
-            .carousel-indicator {
-                width: 0.75rem; /* w-3 */
-                height: 0.75rem; /* h-3 */
-                background-color: #a1a1aa; /* bg-zinc-400 */
-                border-radius: 9999px; /* rounded-full */
-                cursor: pointer;
-                transition-property: background-color; 
-                transition-duration: 200ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .carousel-indicator.active {
-                background-color: #5eead4; /* bg-teal-300 */
-            }
-        `;
-        document.head.appendChild(styleTag);
-        
-        // --- Countdown Logic ---
-        let timeLeft = 60; 
-        const countdownElement = document.getElementById('countdown');
-
-        function updateCountdown() {
-            if (timeLeft <= 0) {
-                window.location.href = "/link"; 
-            } else {
-                countdownElement.textContent = timeLeft;
-                timeLeft--;
-                setTimeout(updateCountdown, 1000);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', updateCountdown);
-
-        // --- Mobile Menu Logic ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu-button');
-        const offCanvasMenu = document.getElementById('off-canvas-menu');
-        const offCanvasOverlay = document.getElementById('off-canvas-overlay');
-
-        function toggleMenu() {
-            offCanvasMenu.classList.toggle('open');
-            offCanvasOverlay.classList.toggle('open');
-            document.body.classList.toggle('overflow-hidden'); 
+        // --- Header/Footer Injection Logic ---
+        async function loadPartial(id, url) {
+            const response = await fetch(url);
+            const html = await response.text();
+            document.getElementById(id).innerHTML = html;
         }
 
-        mobileMenuButton?.addEventListener('click', toggleMenu);
-        closeMenuButton?.addEventListener('click', toggleMenu);
-        offCanvasOverlay?.addEventListener('click', toggleMenu); 
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadPartial('header-placeholder', '/_includes/header.html');
+            await loadPartial('footer-placeholder', '/_includes/footer.html');
 
-        offCanvasMenu?.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (offCanvasMenu.classList.contains('open')) {
-                    toggleMenu();
+            // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
+            // This ensures elements like mobile menu buttons are in the DOM before scripts try to attach listeners.
+
+            // --- Countdown Logic ---
+            let timeLeft = 5; 
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) { // Check if element exists before starting countdown
+                function updateCountdown() {
+                    if (timeLeft <= 0) {
+                        window.location.href = "/link"; 
+                    } else {
+                        countdownElement.textContent = timeLeft;
+                        timeLeft--;
+                        setTimeout(updateCountdown, 1000);
+                    }
                 }
-            });
-        });
-
-        // --- Image Carousel Logic ---
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-image');
-        const indicatorsContainer = document.querySelector('.carousel-indicators');
-        let autoSlideInterval;
-
-        function showSlide(n) {
-            slides.forEach(slide => {
-                slide.classList.remove('active', 'opacity-100');
-                slide.classList.add('opacity-0'); 
-            });
-
-            if (n >= slides.length) { slideIndex = 0; }
-            if (n < 0) { slideIndex = slides.length - 1; }
-            
-            requestAnimationFrame(() => {
-                slides[slideIndex].classList.add('active', 'opacity-100');
-            });
-            updateIndicators();
-        }
-
-        function plusSlides(n) {
-            clearInterval(autoSlideInterval); 
-            showSlide(slideIndex += n);
-            startAutoSlide(); 
-        }
-
-        function currentSlide(n) {
-            clearInterval(autoSlideInterval); 
-            slideIndex = n;
-            showSlide(slideIndex);
-            startAutoSlide(); 
-        }
-
-        function updateIndicators() {
-            if (!indicatorsContainer) return;
-            indicatorsContainer.innerHTML = ''; 
-            for (let i = 0; i < slides.length; i++) {
-                const indicator = document.createElement('div');
-                indicator.classList.add('carousel-indicator'); 
-                if (i === slideIndex) {
-                    indicator.classList.add('active');
-                }
-                indicator.addEventListener('click', () => currentSlide(i));
-                indicatorsContainer.appendChild(indicator);
+                updateCountdown();
             }
-        }
 
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                showSlide(slideIndex += 1);
-            }, 5000); 
-        }
+            // --- Image Carousel Logic ---
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.carousel-image');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            let autoSlideInterval;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            if (slides.length > 0) {
-                showSlide(slideIndex);
+            if (slides.length > 0) { // Only run if carousel images exist
+                function showSlide(n) {
+                    slides.forEach(slide => {
+                        slide.classList.remove('active', 'opacity-100');
+                        slide.classList.add('opacity-0'); 
+                    });
+
+                    if (n >= slides.length) { slideIndex = 0; }
+                    if (n < 0) { slideIndex = slides = length - 1; }
+                    
+                    requestAnimationFrame(() => {
+                        slides[slideIndex].classList.add('active', 'opacity-100');
+                    });
+                    updateIndicators();
+                }
+
+                function plusSlides(n) {
+                    clearInterval(autoSlideInterval); 
+                    showSlide(slideIndex += n);
+                    startAutoSlide(); 
+                }
+
+                function currentSlide(n) {
+                    clearInterval(autoSlideInterval); 
+                    slideIndex = n;
+                    showSlide(slideIndex);
+                    startAutoSlide(); 
+                }
+
+                function updateIndicators() {
+                    if (!indicatorsContainer) return;
+                    indicatorsContainer.innerHTML = ''; 
+                    for (let i = 0; i < slides.length; i++) {
+                        const indicator = document.createElement('div');
+                        indicator.classList.add('carousel-indicator'); 
+                        if (i === slideIndex) {
+                            indicator.classList.add('active');
+                        }
+                        indicator.addEventListener('click', () => currentSlide(i));
+                        indicatorsContainer.appendChild(indicator);
+                    }
+                }
+
+                function startAutoSlide() {
+                    autoSlideInterval = setInterval(() => {
+                        showSlide(slideIndex += 1);
+                    }, 5000); 
+                }
+
+                showSlide(slideIndex); // Initial display
                 document.querySelector('.carousel-button.prev')?.addEventListener('click', () => plusSlides(-1));
                 document.querySelector('.carousel-button.next')?.addEventListener('click', () => plusSlides(1));
                 startAutoSlide();
             } else {
                 document.getElementById('image-carousel')?.classList.add('hidden');
-            }
-        });
-
-        // --- Dynamic Copyright Year Logic ---
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentYearSpan = document.getElementById('current-year');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
             }
         });
     </script>
