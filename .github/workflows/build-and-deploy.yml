@@ -4,7 +4,7 @@ name: Build & Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Or 'master', depending on your default branch name
+      - main
 
 jobs:
   build:
@@ -20,22 +20,18 @@ jobs:
           node-version: '20'
 
       - name: Initialize npm project and install Tailwind CSS
-        # This creates package.json and installs tailwindcss as a dev dependency
         run: |
           npm init -y
           npm install -D tailwindcss@latest
 
       - name: Add build script to package.json
-        # This command programmatically adds our build script to package.json.
-        # This is the most reliable way to run local node binaries in CI.
-        run: npm pkg set scripts.build="tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify"
+        # Fix: Use npx to run the locally installed tailwindcss binary
+        run: npm pkg set scripts.build="npx tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify"
 
       - name: Build Tailwind CSS
-        # Now, we run the script we just defined. npm handles finding the executable.
         run: npm run build
 
       - name: Copy static assets to output directory
-        # Using 'public' is a safe, neutral name that avoids any Jekyll conflicts.
         run: |
           rsync -av --exclude 'public/' \
                     --exclude '.git/' \
@@ -47,7 +43,6 @@ jobs:
                     ./ ./public/
 
       - name: Create .nojekyll file
-        # This explicitly tells GitHub Pages not to use Jekyll.
         run: touch ./public/.nojekyll
 
       - name: Upload public folder as artifact
@@ -62,8 +57,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     permissions:
-      pages: write      # To deploy to GitHub Pages
-      id-token: write   # To authenticate with GitHub Pages
+      pages: write
+      id-token: write
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
