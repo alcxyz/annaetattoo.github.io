@@ -19,17 +19,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Initialize npm project and install Tailwind CSS
+      - name: Create output directory
+        run: mkdir -p ./public/dist
+
+      - name: Install Tailwind CSS
         run: |
           npm init -y
-          npm install -D tailwindcss@latest
-
-
-      - name: Build Tailwind CSS
-        run: npx tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
+          npm install -D tailwindcss@3.4.13
 
       - name: Build Tailwind CSS
-        run: npm run build
+        run: ./node_modules/.bin/tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
 
       - name: Copy static assets to output directory
         run: |
