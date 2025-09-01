@@ -1,0 +1,57 @@
+# .github/workflows/build-and-deploy.yml
+name: Build & Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or 'master', depending on your default branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Or any stable Node.js version you prefer
+
+      - name: Install Tailwind CSS CLI
+        run: npm install -D tailwindcss@latest
+
+      - name: Build Tailwind CSS
+        run: npx tailwindcss -i ./src/input.css -o ./dist/style.css --minify
+
+      - name: Copy other static assets to dist
+        # This will copy everything EXCEPT .github, src/, node_modules to dist.
+        # It ensures all your HTML, images, and JavaScript are deployed.
+        run: |
+          mkdir -p dist
+          rsync -av --exclude 'dist' --exclude '.git' \
+                    --exclude '.github' --exclude 'src' \
+                    --exclude 'tailwind.config.js' \
+                    --exclude 'package*.json' \
+                    --exclude 'node_modules' \
+                    ./ ./dist/
+
+      - name: Upload dist folder as artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write      # To deploy to GitHub Pages
+      id-token: write   # To authenticate with GitHub Pages
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
