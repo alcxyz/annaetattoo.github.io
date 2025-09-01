@@ -14,52 +14,43 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # Or any stable Node.js version you prefer
-
-      - name: Initialize npm project
-        # This creates a package.json file, necessary for npm install to place
-        # the tailwindcss executable in node_modules/.bin correctly.
-        run: npm init -y
-
-      - name: Install Tailwind CSS CLI
-        run: npm install -D tailwindcss@latest
+      - name: Download Standalone Tailwind CSS CLI
+        # This is the most robust method. It downloads the official pre-compiled binary.
+        # It has no dependency on Node.js or npm to run.
+        run: |
+          curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
+          mv tailwindcss-linux-x64 tailwindcss
+          chmod +x tailwindcss
 
       - name: Create output directory for compiled site
-        # Create _site and a 'dist' subdirectory within it.
-        # We will build and copy all final assets into this _site folder.
-        run: mkdir -p _site/dist
+        # Using 'public' is a safe, neutral name that avoids any Jekyll conflicts.
+        run: mkdir -p public/dist
 
       - name: Build Tailwind CSS
-        # IMPORTANT CHANGE: Directly call the binary from node_modules/.bin
-        # This bypasses npx which was failing to find the executable.
-        # Output directly into the intended final path: _site/dist/style.css
-        run: ./node_modules/.bin/tailwindcss -i ./src/input.css -o ./_site/dist/style.css --minify
+        # Now we call the downloaded standalone binary directly.
+        run: ./tailwindcss -i ./src/input.css -o ./public/dist/style.css --minify
 
       - name: Copy static assets to output directory
-        # Copy all project files into _site, excluding source/build files.
-        # It's important that _site/dist already exists from the previous step.
+        # Copy all project files into the 'public' folder.
         run: |
-          rsync -av --exclude '_site/' \ # Exclude the _site folder itself to avoid infinite recursion/errors
+          rsync -av --exclude 'public/' \
                     --exclude '.git/' \
                     --exclude '.github/' \
                     --exclude 'src/' \
                     --exclude 'tailwind.config.js' \
                     --exclude 'package*.json' \
                     --exclude 'node_modules/' \
-                    ./ ./_site/
+                    --exclude 'tailwindcss' \
+                    ./ ./public/
 
       - name: Create .nojekyll file
-        # This tells GitHub Pages NOT to process the site with Jekyll.
-        # This is crucial for purely static sites managing their own build output.
-        run: touch ./_site/.nojekyll
+        # This explicitly tells GitHub Pages not to use Jekyll.
+        run: touch ./public/.nojekyll
 
-      - name: Upload _site folder as artifact
+      - name: Upload public folder as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_site' # Upload the compiled site folder
+          path: './public' # Upload the compiled site folder
 
   deploy:
     needs: build
