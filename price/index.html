@@ -75,7 +75,7 @@
 
         <div class="space-y-6 mb-10">
             <!-- Initial Sessions Subcategory -->
-            <h3 class="mb-4">Initial Sessions</h3>
+            <h3>Initial Sessions</h3>
 
             <!-- Eyebrow Permanent Makeup (Base) -->
             <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2oh3aeg5WUxwiELsWV2s9q03aE2WaYT9_Z9rrLkJNnqGmdhHJv50Wov15gYJ86Mi0nUZ0I8oMQ" target="_blank" class="price-item-link group">
@@ -192,7 +192,7 @@
                     <div class="price-value-container">
                         <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 3 500,-</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -226,13 +226,15 @@
 
             <!-- Eyebrow tinting (color) -->
             <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0sVCtJmkkG8L8S1xYNBaCpurJuifeib5fHAbel-cB6awa1IGxCqdbLaR7-1r4DtAma9UpxAH5N" target="_blank" class="price-item-link group">
-                <div class="md:w-3/4">
-                    <h4 class="group-hover:text-teal-300">Eyebrow Tinting (Color)</h4>
+                <div class="item-content">
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">Eyebrow Tinting (Color)</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 200,-</p>
+                    </div>
                 </div>
-                <div class="price-value-container">
-                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 200,-</p>
-                </div>
-            </div>
+            </a>
         </div>
 
         <!-- === HAIR REMOVAL SERVICE CATEGORY (NEW) === -->
@@ -240,11 +242,13 @@
         <div class="space-y-6 mb-10">
             <!-- Facial hair removal -->
             <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ27qik38_VBNxqHHBvUcQx3RlW9zc0xx1dMoVE4JGnYFpzO_ZprFKfVCF4anLG7uqwMwZXLhG9B" target="_blank" class="price-item-link group">
-                <div class="md:w-3/4">
-                    <h4 class="group-hover:text-teal-300">Facial Hair Removal</h4>
-                </div>
-                <div class="price-value-container">
-                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 100,-</p>
+                <div class="item-content">
+                    <div class="md:w-3/4">
+                        <h4 class="group-hover:text-teal-300">Facial Hair Removal</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 100,-</p>
+                    </div>
                 </div>
             </a>
         </div>
@@ -255,18 +259,14 @@
                 Book Any Service
             </a>
         </p>
-        <p class="text-center mt-4">
+        <p class="text-center mt-4 pb-16"> <!-- Added pb-16 to ensure space before footer -->
             <a href="/" class="text-teal-300 hover:underline">Back to Home</a>
         </p>
 
-        <!-- Dynamic Year Script -->
-        <script type="text/javascript">
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        </script>
     </div> <!-- End of max-w-4xl mx-auto bg-zinc-900... div -->
 
     <!-- Footer for Social Icons - MOVED OUTSIDE THE MAIN CONTENT BOX -->
-    <footer class="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-12">
+    <footer class="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-auto">
         <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with annae.tattoo</h2>
         <div class="flex justify-center space-x-6 mb-6">
             <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -280,5 +280,10 @@
             &copy; 2016-<span id="current-year"></span> annae.tattoo. All rights reserved.
         </p>
     </footer>
+
+    <!-- Dynamic Year Script -->
+    <script type="text/javascript">
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
