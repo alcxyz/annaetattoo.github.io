@@ -19,28 +19,38 @@ jobs:
         with:
           node-version: '20' # Or any stable Node.js version you prefer
 
+      - name: Initialize npm project
+        # This step is crucial: it creates a package.json file
+        # so npm install can correctly place tailwindcss in node_modules/.bin
+        run: npm init -y
+
       - name: Install Tailwind CSS CLI
         run: npm install -D tailwindcss@latest
 
-      - name: Build Tailwind CSS
-        run: npx tailwindcss -i ./src/input.css -o ./dist/style.css --minify
+      - name: Create output directory for compiled site
+        run: mkdir -p _site/dist # Create _site and a 'dist' subdirectory within it
 
-      - name: Copy other static assets to dist
-        # This will copy everything EXCEPT .github, src/, node_modules to dist.
-        # It ensures all your HTML, images, and JavaScript are deployed.
+      - name: Build Tailwind CSS
+        # Output directly into the intended final path: _site/dist/style.css
+        run: npx tailwindcss -i ./src/input.css -o ./_site/dist/style.css --minify
+
+      - name: Copy static assets to output directory
+        # Copy all project files into _site, excluding source/build files
+        # The 'dist' folder within _site (containing style.css) will not be overwritten
         run: |
-          mkdir -p dist
-          rsync -av --exclude 'dist' --exclude '.git' \
-                    --exclude '.github' --exclude 'src' \
+          rsync -av --exclude '_site' \
+                    --exclude '.git' \
+                    --exclude '.github' \
+                    --exclude 'src' \
                     --exclude 'tailwind.config.js' \
                     --exclude 'package*.json' \
                     --exclude 'node_modules' \
-                    ./ ./dist/
+                    ./ ./_site/
 
-      - name: Upload dist folder as artifact
+      - name: Upload _site folder as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './_site' # Upload the compiled site folder
 
   deploy:
     needs: build
