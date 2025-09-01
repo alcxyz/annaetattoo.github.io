@@ -20,32 +20,41 @@ jobs:
           node-version: '20' # Or any stable Node.js version you prefer
 
       - name: Initialize npm project
-        # This step is crucial: it creates a package.json file
-        # so npm install can correctly place tailwindcss in node_modules/.bin
+        # This creates a package.json file, necessary for npm install to place
+        # the tailwindcss executable in node_modules/.bin correctly.
         run: npm init -y
 
       - name: Install Tailwind CSS CLI
         run: npm install -D tailwindcss@latest
 
       - name: Create output directory for compiled site
-        run: mkdir -p _site/dist # Create _site and a 'dist' subdirectory within it
+        # Create _site and a 'dist' subdirectory within it.
+        # We will build and copy all final assets into this _site folder.
+        run: mkdir -p _site/dist
 
       - name: Build Tailwind CSS
+        # IMPORTANT CHANGE: Directly call the binary from node_modules/.bin
+        # This bypasses npx which was failing to find the executable.
         # Output directly into the intended final path: _site/dist/style.css
-        run: npx tailwindcss -i ./src/input.css -o ./_site/dist/style.css --minify
+        run: ./node_modules/.bin/tailwindcss -i ./src/input.css -o ./_site/dist/style.css --minify
 
       - name: Copy static assets to output directory
-        # Copy all project files into _site, excluding source/build files
-        # The 'dist' folder within _site (containing style.css) will not be overwritten
+        # Copy all project files into _site, excluding source/build files.
+        # It's important that _site/dist already exists from the previous step.
         run: |
-          rsync -av --exclude '_site' \
-                    --exclude '.git' \
-                    --exclude '.github' \
-                    --exclude 'src' \
+          rsync -av --exclude '_site/' \ # Exclude the _site folder itself to avoid infinite recursion/errors
+                    --exclude '.git/' \
+                    --exclude '.github/' \
+                    --exclude 'src/' \
                     --exclude 'tailwind.config.js' \
                     --exclude 'package*.json' \
-                    --exclude 'node_modules' \
+                    --exclude 'node_modules/' \
                     ./ ./_site/
+
+      - name: Create .nojekyll file
+        # This tells GitHub Pages NOT to process the site with Jekyll.
+        # This is crucial for purely static sites managing their own build output.
+        run: touch ./_site/.nojekyll
 
       - name: Upload _site folder as artifact
         uses: actions/upload-pages-artifact@v3
