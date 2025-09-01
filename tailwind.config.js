@@ -1,12 +1,21 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
-    "./prices/index.html",
+    "./price/index.html",
     "./terms/index.html",
-    "./partials/**/*.html", // This is crucial to scan your injected partials
-    // Add other HTML, JS, or templating files here if they contain Tailwind classes
+    "./booking/index.html",
+    "./care/index.html",
+    "./contract.*/index.html",
+    "./fb/index.html",
+    "./ig/index.html",
+    "./link/index.html",
+    "./map/index.html",
+    "./msg/index.html",
+    "./review/index.html",
+    "./partials/**/*.html",
+    // Add any JS files that might have Tailwind classes
+    "./**/*.js",
   ],
   theme: {
     extend: {},
