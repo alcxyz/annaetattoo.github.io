@@ -6,7 +6,7 @@
     <!-- Keep your Facebook domain verification meta tag -->
     <meta name="facebook-domain-verification" content="4lx1wqa7bboajysa9ajt38eqrywtm0" />
     
-    <title>annae.tattoo - Masterful Permanent Makeup & Tattoo Removal</title>
+    <title>Annae Tattoo - Coming Soon!</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -112,9 +112,9 @@
         <div id="image-carousel" class="relative w-full max-w-4xl mx-auto mb-16 h-96">
             <div class="relative overflow-hidden w-full h-full rounded-lg shadow-xl">
                 <!-- IMPORTANT: Replace these with your actual image paths -->
-                <img src="/images/carousel-1.webp" class="carousel-image active absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 1">
-                <img src="/images/carousel-2.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 2">
-                <img src="/images/carousel-3.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="Annae Tattoo Work 3">
+                <img src="/images/carousel-1.webp" class="carousel-image active absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="annae.tattoo Work 1">
+                <img src="/images/carousel-2.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="annae.tattoo Work 2">
+                <img src="/images/carousel-3.webp" class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out" alt="annae.tattoo Work 3">
             </div>
             <!-- Navigation Buttons -->
             <button class="carousel-button prev absolute top-1/2 left-4 -translate-y-1/2 bg-zinc-950 bg-opacity-70 text-zinc-50 p-3 rounded-full hover:bg-opacity-90 transition-all z-20">
@@ -171,21 +171,26 @@
         </div>
     </main>
 
-    <!-- Footer for Social Icons -->
+    <!-- Footer for Social Icons and Contact Info (Matched to price.html) -->
     <footer class="w-full max-w-7xl bg-zinc-950 py-8 text-center border-t border-zinc-800 mt-auto">
-        <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with Annae Tattoo</h2>
+        <h2 class="text-2xl font-bold text-zinc-50 mb-4">Connect with annae.tattoo</h2>
         <div class="flex justify-center space-x-6 mb-6">
             <a href="/fb" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="/ig" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
             <a href="/msg" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="text-md text-zinc-300">&copy; 2024 Annae Tattoo. All rights reserved.</p>
+        <p class="text-lg text-zinc-300 mb-2">
+            <a href="/msg" class="text-zinc-300 hover:text-teal-300 transition-colors duration-200">
+                annae.tattoo - (+47) 466 77 142
+            </a>
+        </p>
+        <p class="text-md text-zinc-300">&copy; 2016 - <span id="current-year"></span> annae.tattoo. All rights reserved.</p>
     </footer>
 
 
     <script type="text/javascript">
-        // Injecting reusable Tailwind styles for custom component classes using DEFAULT Tailwind colors.
-        // This is the proven method for custom classes with the CDN without a build step.
+        // JavaScript for injecting custom Tailwind component styles with hex codes.
+        // This is the robust method for custom classes with the CDN.
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
             .nav-link { 
@@ -257,7 +262,7 @@
         document.head.appendChild(styleTag);
         
         // --- Countdown Logic ---
-        let timeLeft = 30; 
+        let timeLeft = 60; 
         const countdownElement = document.getElementById('countdown');
 
         function updateCountdown() {
@@ -357,6 +362,14 @@
                 startAutoSlide();
             } else {
                 document.getElementById('image-carousel')?.classList.add('hidden');
+            }
+        });
+
+        // --- Dynamic Copyright Year Logic ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
             }
         });
     </script>
