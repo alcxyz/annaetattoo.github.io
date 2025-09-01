@@ -21,44 +21,30 @@
           }
           h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-teal-500 pb-4; }
           h2 { @apply text-3xl font-semibold text-teal-300 mb-4 mt-8; }
-          h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; } /* For subcategories like "Initial Sessions" */
-          h4 { @apply text-xl font-semibold text-zinc-50 mb-2; } /* For individual service titles */
+          h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; }
+          h4 { @apply text-xl font-semibold text-zinc-50 mb-2; } /* New: for individual item titles */
           p { @apply mb-4 text-zinc-300 leading-relaxed; }
           ul { @apply list-none mb-4 pl-0; }
           li { @apply text-zinc-300 mb-2; }
           a { @apply text-teal-300 hover:text-teal-400 underline; }
           strong { @apply text-teal-300; } /* Highlight strong text */
 
-          /* Custom styling for price list components */
-          .price-item-card {
-            @apply p-4 bg-zinc-800 rounded-lg shadow-md;
+          /* Custom styling for price list items - uses direct hex colors to avoid CDN @apply issues */
+          .price-item-container {
+            @apply flex flex-col md:flex-row md:justify-between md:items-start p-4 bg-zinc-800 rounded-lg;
           }
-          .price-item-base-row {
-            @apply flex flex-col md:flex-row md:justify-between md:items-center mb-2;
+          .price-item-description {
+            @apply text-zinc-300 text-lg space-y-1; /* use space-y for list item spacing */
           }
-          .price-item-base-title {
-            @apply text-xl font-semibold text-zinc-50;
+          .price-value-container {
+            @apply md:text-right mt-4 md:mt-0;
           }
-          .price-item-base-value {
-            @apply text-xl font-bold text-teal-300 mt-2 md:mt-0 md:text-right;
+          .price-value {
+            @apply text-xl font-bold text-teal-300;
           }
-          .add-on-box {
-            @apply mt-4 p-3 bg-zinc-700 rounded-lg border border-zinc-600;
+          .price-extra {
+            @apply text-lg text-zinc-300;
           }
-          .add-on-title {
-            @apply text-lg font-semibold text-zinc-50 mb-2 border-b border-zinc-600 pb-1;
-          }
-          .add-on-item {
-            @apply flex justify-between items-center text-zinc-300 text-lg;
-          }
-          .add-on-item-name {
-            @apply flex items-center; /* For icon alignment */
-          }
-          .add-on-item-value {
-            @apply font-bold;
-          }
-
-          /* Utility classes for discounts/icons */
           .discount-value {
             @apply text-emerald-400; /* Use emerald for discounts */
           }
@@ -76,95 +62,108 @@
         <h1 class="text-center">Price List</h1>
         <p class="text-center text-xl text-zinc-400 mb-4">Effective: January - March 2024</p>
 
-        <p class="text-center text-xl text-teal-300 mb-10">Permanent Makeup & Tattoo Removal</p>
+        <h2 class="text-center text-teal-300 mb-10">Permanent Makeup & Tattoo Removal</h2>
 
         <!-- === PERMANENT MAKEUP CATEGORY === -->
         <h2 class="border-b border-zinc-700 pb-2 mb-6">Permanent Makeup Sessions</h2>
-        <div class="space-y-8 mb-10">
+        <div class="space-y-6 mb-10">
             <!-- Initial Sessions Subcategory -->
             <h3 class="mb-4">Initial Sessions</h3>
 
-            <!-- Eyebrow Permanent Makeup -->
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">Eyebrow Permanent Makeup (Ombre Powder Brows)</h4>
-                    <p class="price-item-base-value">kr. 4 000,-</p>
+            <!-- Eyebrow Permanent Makeup (Base) -->
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>Eyebrow Permanent Makeup (Ombre Powder Brows)</h4>
+                    <ul class="price-item-description">
+                        <li><i class="fas fa-check checkmark-icon"></i> Base Procedure</li>
+                    </ul>
                 </div>
-                <p class="text-zinc-300 text-lg mb-4">Base Procedure</p> <!-- Description for base -->
+                <div class="price-value-container">
+                    <p class="price-value">kr. 4 000,-</p>
+                </div>
+            </div>
 
-                <div class="add-on-box">
-                    <h5 class="add-on-title">Optional Enhancements:</h5>
-                    <div class="flex flex-col space-y-2">
-                        <div class="add-on-item">
-                            <span class="add-on-item-name"><i class="fas fa-plus checkmark-icon"></i> Overlapping or updating an existing tattoo</span>
-                            <span class="add-on-item-value">+ kr. 500,-</span>
-                        </div>
+            <!-- Permanent Make-up of the Eyelids (Base) -->
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>Permanent Make-up of the Eyelids (Interciliary Space)</h4>
+                    <ul class="price-item-description">
+                        <li><i class="fas fa-check checkmark-icon"></i> Base Procedure</li>
+                    </ul>
+                </div>
+                <div class="price-value-container">
+                    <p class="price-value">kr. 4 000,-</p>
+                </div>
+            </div>
+
+            <!-- Permanent Lip Makeup (Base) -->
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>Permanent Lip Makeup (Complete Filling)</h4>
+                    <ul class="price-item-description">
+                        <li><i class="fas fa-check checkmark-icon"></i> Base Procedure</li>
+                    </ul>
+                </div>
+                <div class="price-value-container">
+                    <p class="price-value">kr. 4 000,-</p>
+                </div>
+            </div>
+
+            <!-- Additional PMU Options (New Section) -->
+            <h3 class="mb-4 pt-6 border-t border-zinc-700">Additional PMU Options (add to base service)</h3>
+            <div class="space-y-4">
+                <div class="price-item-container">
+                    <div class="md:w-3/4">
+                        <h4>Overlapping or updating an existing tattoo</h4>
+                        <p class="price-item-description">Applies to Eyebrow, Eyelid, or Lip PMU.</p>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-extra"><i class="fas fa-plus checkmark-icon"></i> kr. 500,-</p>
+                    </div>
+                </div>
+                <div class="price-item-container">
+                    <div class="md:w-3/4">
+                        <h4>Eyeliner effect (for Eyelid PMU)</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-extra"><i class="fas fa-plus checkmark-icon"></i> kr. 500,-</p>
+                    </div>
+                </div>
+                <div class="price-item-container">
+                    <div class="md:w-3/4">
+                        <h4>Soft pencil effect (Shadow Shading) (for Eyelid PMU)</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-extra"><i class="fas fa-plus checkmark-icon"></i> kr. 500,-</p>
+                    </div>
+                </div>
+                <div class="price-item-container">
+                    <div class="md:w-3/4">
+                        <h4>3D ombre technique (for Lip PMU)</h4>
+                    </div>
+                    <div class="price-value-container">
+                        <p class="price-extra"><i class="fas fa-plus checkmark-icon"></i> kr. 500,-</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Permanent Make-up of the Eyelids -->
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">Permanent Make-up of the Eyelids (Interciliary Space)</h4>
-                    <p class="price-item-base-value">kr. 4 000,-</p>
-                </div>
-                <p class="text-zinc-300 text-lg mb-4">Base Procedure</p> <!-- Description for base -->
-
-                <div class="add-on-box">
-                    <h5 class="add-on-title">Optional Enhancements:</h5>
-                    <div class="flex flex-col space-y-2">
-                        <div class="add-on-item">
-                            <span class="add-on-item-name"><i class="fas fa-plus checkmark-icon"></i> Overlapping or updating an existing tattoo</span>
-                            <span class="add-on-item-value">+ kr. 500,-</span>
-                        </div>
-                        <div class="add-on-item">
-                            <span class="add-on-item-name"><i class="fas fa-plus checkmark-icon"></i> Eyeliner effect</span>
-                            <span class="add-on-item-value">+ kr. 500,-</span>
-                        </div>
-                        <div class="add-on-item">
-                            <span class="add-on-item-name"><i class="fas fa-plus checkmark-icon"></i> Soft pencil effect (Shadow Shading)</span>
-                            <span class="add-on-item-value">+ kr. 500,-</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Permanent Lip Makeup -->
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">Permanent Lip Makeup</h4>
-                    <p class="price-item-base-value">kr. 4 000,-</p>
-                </div>
-                <p class="text-zinc-300 text-lg mb-4">Base Procedure</p> <!-- Description for base -->
-
-                <div class="add-on-box">
-                    <h5 class="add-on-title">Optional Enhancements:</h5>
-                    <div class="flex flex-col space-y-2">
-                        <div class="add-on-item">
-                            <span class="add-on-item-name"><i class="fas fa-plus checkmark-icon"></i> 3D ombre technique</span>
-                            <span class="add-on-item-value">+ kr. 500,-</span>
-                        </div>
-                        <div class="add-on-item">
-                            <span class="add-on-item-name"><i class="fas fa-plus checkmark-icon"></i> Overlapping or updating an existing tattoo</span>
-                            <span class="add-on-item-value">+ kr. 500,-</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Discounted Packages -->
             <h3 class="mb-4 pt-6 border-t border-zinc-700">Discounted Packages</h3>
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">Signature Elite Trilogy (3x Initial Session)</h4>
-                    <p class="price-item-base-value"><span class="discount-value">- 25%</span> kr. 9 000,- <i class="fire-icon fas fa-fire"></i></p>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>Signature Elite Trilogy (3x Initial Session)</h4>
+                </div>
+                <div class="price-value-container">
+                    <p class="price-value"><span class="discount-value">- 25%</span> kr. 9 000,- <i class="fire-icon fas fa-fire"></i></p>
                 </div>
             </div>
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">Dual Deluxe Selection (2x Initial Session)</h4>
-                    <p class="price-item-base-value"><span class="discount-value">- 15%</span> kr. 6 800,- <i class="fire-icon fas fa-fire"></i></p>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>Dual Deluxe Selection (2x Initial Session)</h4>
+                </div>
+                <div class="price-value-container">
+                    <p class="price-value"><span class="discount-value">- 15%</span> kr. 6 800,- <i class="fire-icon fas fa-fire"></i></p>
                 </div>
             </div>
         </div>
@@ -173,51 +172,59 @@
         <h3 class="mb-4">Corrective Sessions</h3>
         <div class="space-y-6 mb-10">
             <!-- First Correction -->
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">The first correction of permanent makeup</h4>
-                    <p class="price-item-base-value"><i class="fas fa-check checkmark-icon"></i> 50% of Original Full Price</p>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>The first correction of permanent makeup</h4>
+                    <p class="price-item-description">
+                        (done one month after the first procedure, the period for correction should not exceed 3 months,
+                        otherwise, the tattoo will be considered a "renewal").
+                    </p>
                 </div>
-                <p class="text-zinc-300 text-lg">
-                    (done one month after the first procedure, the period for correction should not exceed 3 months,
-                    otherwise, the tattoo will be considered a "renewal").
-                </p>
+                <div class="price-value-container">
+                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> 50% of Original Full Price</p>
+                </div>
             </div>
 
             <!-- Second Correction -->
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">The second correction of permanent makeup</h4>
-                    <p class="price-item-base-value"><i class="fas fa-check checkmark-icon"></i> 50% of First Correction Price</p>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>The second correction of permanent makeup</h4>
+                    <p class="price-item-description">
+                        (done no earlier than 2 weeks after the first correction, the period for correction should not exceed 1 month).
+                    </p>
                 </div>
-                <p class="text-zinc-300 text-lg">
-                    (done no earlier than 2 weeks after the first correction, the period for correction should not exceed 1 month).
-                </p>
+                <div class="price-value-container">
+                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> 50% of First Correction Price</p>
+                </div>
             </div>
 
             <!-- Tattoo Renewal -->
-            <div class="price-item-card">
-                <div class="price-item-base-row">
-                    <h4 class="price-item-base-title">Tattoo renewal</h4>
-                    <p class="price-item-base-value"><i class="fas fa-check checkmark-icon"></i> kr. 500,- Discount</p>
+            <div class="price-item-container">
+                <div class="md:w-3/4">
+                    <h4>Tattoo renewal</h4>
+                    <p class="price-item-description">
+                        (applied from after 3 months since the last procedure).
+                    </p>
                 </div>
-                <p class="text-zinc-300 text-lg">
-                    (applied from after 3 months since the last procedure).
-                </p>
+                <div class="price-value-container">
+                    <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 500,- Discount</p>
+                </div>
             </div>
         </div>
 
         <!-- === TATTOO REMOVAL CATEGORY === -->
         <h2 class="border-b border-zinc-700 pb-2 mb-6">Tattoo Removal (CRC)</h2>
-        <div class="price-item-card mb-10">
-            <div class="price-item-base-row">
-                <h4 class="price-item-base-title">Removal of existing tattoo and PMU.</h4>
-                <p class="price-item-base-value"><i class="fas fa-check checkmark-icon"></i> kr. 1 500,-</p>
+        <div class="price-item-container mb-10">
+            <div class="md:w-3/4">
+                <h4>Removal of existing tattoo and PMU.</h4>
+                <p class="price-item-description">
+                    Multiple sessions, depending on the condition.<br>
+                    Price may vary depending on the size of the area.
+                </p>
             </div>
-            <p class="text-zinc-300 text-lg">
-                Multiple sessions, depending on the condition.<br>
-                Price may vary depending on the size of the area.
-            </p>
+            <div class="price-value-container">
+                <p class="price-value"><i class="fas fa-check checkmark-icon"></i> kr. 1 500,-</p>
+            </div>
         </div>
 
         <!-- Call to Action & Navigation -->
