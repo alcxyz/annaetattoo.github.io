@@ -151,8 +151,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-            await loadPartial('header-placeholder', '/_includes/header.html');
-            await loadPartial('footer-placeholder', '/_includes/footer.html');
+            await loadPartial('header-placeholder', '_includes/header.html');
+            await loadPartial('footer-placeholder', '_includes/footer.html');
 
             // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
             // This ensures elements like mobile menu buttons are in the DOM before scripts try to attach listeners.
