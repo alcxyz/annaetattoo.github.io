@@ -27,8 +27,9 @@ jobs:
         run: mkdir -p public/dist
 
       - name: Build Tailwind CSS
-        # Now we call the downloaded standalone binary directly.
-        run: ./tailwindcss -i ./src/input.css -o ./public/dist/style.css --minify
+        # THE FIX: Explicitly pass the config file path with the -c flag.
+        # This ensures Tailwind loads its configuration and default classes correctly.
+        run: ./tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
 
       - name: Copy static assets to output directory
         # Copy all project files into the 'public' folder.
