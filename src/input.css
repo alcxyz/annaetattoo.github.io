@@ -7,14 +7,14 @@
 body { @apply font-sans; }
 html { scroll-behavior: smooth; }
 a { @apply no-underline; }
-h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-fuchsia-500 pb-4; }
-h2 { @apply text-3xl font-semibold text-fuchsia-300 mb-4 mt-8; }
+h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-fuchsia-400 pb-4; }
+h2 { @apply text-3xl font-semibold text-fuchsia-200 mb-4 mt-8; }
 h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; }
 h4 { @apply text-xl font-semibold text-zinc-50 mb-2; }
 p { @apply mb-4 text-zinc-300 leading-relaxed; }
 ul { @apply list-none mb-4 pl-0; }
 li { @apply text-zinc-300 mb-2; }
-strong { @apply text-fuchsia-300; }
+strong { @apply text-fuchsia-200; }
 
 /* Price list specific item styles (updated to fuchsia) */
 .price-item-link {
@@ -23,14 +23,14 @@ strong { @apply text-fuchsia-300; }
          transition-colors duration-200 ease-in-out;
 }
 .price-item-link:hover { @apply bg-zinc-700; }
-.price-item-link h4 { @apply text-zinc-50 group-hover:text-fuchsia-300 transition-colors duration-200; }
+.price-item-link h4 { @apply text-zinc-50 group-hover:text-fuchsia-200 transition-colors duration-200; }
 .price-item-link .price-item-description { @apply text-zinc-300; }
 .price-item-link .price-value,
-.price-item-link .price-extra { @apply text-fuchsia-300; }
+.price-item-link .price-extra { @apply text-fuchsia-200; }
 .price-item-link .checkmark-icon { @apply text-emerald-400; }
 .price-item-link .plus-icon { @apply text-emerald-400 mr-2; }
 .discount-value { @apply text-emerald-400; }
-.fire-icon { @apply text-fuchsia-400; }
+.fire-icon { @apply text-fuchsia-300; }
 
 /* Custom component styles (updated to fuchsia) */
 .off-canvas-menu {
@@ -50,20 +50,20 @@ strong { @apply text-fuchsia-300; }
     opacity: 0.7;
 }
 .nav-link {
-    @apply text-lg text-fuchsia-300 hover:text-fuchsia-400 transition duration-300;
+    @apply text-lg text-fuchsia-200 hover:text-fuchsia-300 transition duration-300;
 }
 .mobile-nav-link {
-    @apply text-xl text-zinc-50 hover:text-fuchsia-300 transition duration-300 block py-2;
+    @apply text-xl text-zinc-50 hover:text-fuchsia-200 transition duration-300 block py-2;
 }
 .link-button {
-    @apply inline-block px-6 py-3 bg-fuchsia-300 text-zinc-950 font-bold rounded-lg shadow-lg hover:bg-fuchsia-400 transition duration-300 whitespace-nowrap;
+    @apply inline-block px-6 py-3 bg-fuchsia-200 text-zinc-950 font-bold rounded-lg shadow-lg hover:bg-fuchsia-300 transition duration-300 whitespace-nowrap;
 }
 .social-icon {
-    @apply text-zinc-50 hover:text-fuchsia-300 transition duration-300 text-3xl;
+    @apply text-zinc-50 hover:text-fuchsia-200 transition duration-300 text-3xl;
 }
 .carousel-indicator {
-    @apply w-3 h-3 bg-zinc-400 rounded-full cursor-pointer hover:bg-fuchsia-300 transition-colors duration-200;
+    @apply w-3 h-3 bg-zinc-400 rounded-full cursor-pointer hover:bg-fuchsia-200 transition-colors duration-200;
 }
 .carousel-indicator.active {
-    @apply bg-fuchsia-300;
+    @apply bg-fuchsia-200;
 }
