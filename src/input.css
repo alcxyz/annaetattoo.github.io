@@ -3,36 +3,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles (from your previous partials/styles.html, now with rose accents) */
+/* Custom global styles (updated to fuchsia) */
 body { @apply font-sans; }
 html { scroll-behavior: smooth; }
 a { @apply no-underline; }
-h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-rose-500 pb-4; }
-h2 { @apply text-3xl font-semibold text-rose-300 mb-4 mt-8; }
+h1 { @apply text-4xl font-bold text-zinc-50 mb-6 border-b-2 border-fuchsia-500 pb-4; }
+h2 { @apply text-3xl font-semibold text-fuchsia-300 mb-4 mt-8; }
 h3 { @apply text-2xl font-semibold text-zinc-50 mb-3 mt-6; }
 h4 { @apply text-xl font-semibold text-zinc-50 mb-2; }
 p { @apply mb-4 text-zinc-300 leading-relaxed; }
 ul { @apply list-none mb-4 pl-0; }
 li { @apply text-zinc-300 mb-2; }
-strong { @apply text-rose-300; } /* Highlight strong text */
+strong { @apply text-fuchsia-300; }
 
-/* Price list specific item styles (from your previous partials/styles.html, now with rose accents) */
+/* Price list specific item styles (updated to fuchsia) */
 .price-item-link {
   @apply flex flex-col md:flex-row md:justify-between md:items-start
          p-4 bg-zinc-800 rounded-lg cursor-pointer
          transition-colors duration-200 ease-in-out;
 }
 .price-item-link:hover { @apply bg-zinc-700; }
-.price-item-link h4 { @apply text-zinc-50 group-hover:text-rose-300 transition-colors duration-200; }
+.price-item-link h4 { @apply text-zinc-50 group-hover:text-fuchsia-300 transition-colors duration-200; }
 .price-item-link .price-item-description { @apply text-zinc-300; }
 .price-item-link .price-value,
-.price-item-link .price-extra { @apply text-rose-300; }
+.price-item-link .price-extra { @apply text-fuchsia-300; }
 .price-item-link .checkmark-icon { @apply text-emerald-400; }
 .price-item-link .plus-icon { @apply text-emerald-400 mr-2; }
 .discount-value { @apply text-emerald-400; }
-.fire-icon { @apply text-rose-400; } /* Retaining fire icon color, if desired */
+.fire-icon { @apply text-fuchsia-400; }
 
-/* Custom component styles (now with rose accents) */
+/* Custom component styles (updated to fuchsia) */
 .off-canvas-menu {
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
@@ -50,20 +50,20 @@ strong { @apply text-rose-300; } /* Highlight strong text */
     opacity: 0.7;
 }
 .nav-link {
-    @apply text-lg text-rose-300 hover:text-rose-400 transition duration-300;
+    @apply text-lg text-fuchsia-300 hover:text-fuchsia-400 transition duration-300;
 }
 .mobile-nav-link {
-    @apply text-xl text-zinc-50 hover:text-rose-300 transition duration-300 block py-2;
+    @apply text-xl text-zinc-50 hover:text-fuchsia-300 transition duration-300 block py-2;
 }
 .link-button {
-    @apply inline-block px-6 py-3 bg-rose-300 text-zinc-950 font-bold rounded-lg shadow-lg hover:bg-rose-400 transition duration-300 whitespace-nowrap;
+    @apply inline-block px-6 py-3 bg-fuchsia-300 text-zinc-950 font-bold rounded-lg shadow-lg hover:bg-fuchsia-400 transition duration-300 whitespace-nowrap;
 }
 .social-icon {
-    @apply text-zinc-50 hover:text-rose-300 transition duration-300 text-3xl;
+    @apply text-zinc-50 hover:text-fuchsia-300 transition duration-300 text-3xl;
 }
 .carousel-indicator {
-    @apply w-3 h-3 bg-zinc-400 rounded-full cursor-pointer hover:bg-rose-300 transition-colors duration-200;
+    @apply w-3 h-3 bg-zinc-400 rounded-full cursor-pointer hover:bg-fuchsia-300 transition-colors duration-200;
 }
 .carousel-indicator.active {
-    @apply bg-rose-300;
+    @apply bg-fuchsia-300;
 }
