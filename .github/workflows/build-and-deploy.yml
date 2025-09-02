@@ -28,7 +28,9 @@ jobs:
           npm install -D tailwindcss@3.4.13
 
       - name: Build Tailwind CSS
-        run: ./node_modules/.bin/tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
+        run: |
+          rm -f ./public/dist/style.css  # Remove any existing file
+          ./node_modules/.bin/tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
 
       - name: Copy static assets to output directory
         run: |
