@@ -15,8 +15,7 @@ module.exports = {
     "./review/index.html",
     "./partials/**/*.html",
     // Add any JS files that might have Tailwind classes
-    "./js/*.js",
-
+    "./js/**/*.js",
   ],
   theme: {
     extend: {},
