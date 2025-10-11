@@ -1,8 +1,15 @@
 // --- Partial Injection Logic (Header, Footer) ---
 async function loadPartial(id, url) {
-  const response = await fetch(url);
-  const html = await response.text();
-  document.getElementById(id).innerHTML = html;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to load partial: ${url} (${response.status})`);
+    }
+    const html = await response.text();
+    document.getElementById(id).innerHTML = html;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // --- Language Switcher Logic ---
@@ -15,36 +22,38 @@ function setupLanguageSwitcher() {
 
   if (isNorwegian) {
     // Current page is Norwegian, so set links to English version
-    let targetPath = currentPath.substring(3); // Remove '/no'
-    if (targetPath === "" || targetPath === "/") {
-      targetPath = "/"; // Link to homepage
+    let enPath = currentPath.substring(3); // Remove leading '/no'
+    if (enPath === "" || !enPath.startsWith("/")) {
+      enPath = "/"; // Link to the root homepage
     }
-    switchToEnLinks.forEach((link) => (link.href = targetPath));
+    switchToEnLinks.forEach((link) => (link.href = enPath));
   } else {
     // Current page is English, so set links to Norwegian version
-    const targetPath = "/no" + (currentPath === "/" ? "/" : currentPath);
-    switchToNoLinks.forEach((link) => (link.href = targetPath));
+    // Explicitly handle the root to avoid '//' issues and ensure correctness
+    const noPath = currentPath === "/" ? "/no/" : `/no${currentPath}`;
+    switchToNoLinks.forEach((link) => (link.href = noPath));
   }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Determine language and set partials path
   const lang = document.documentElement.lang || "en";
-  const partialsSubDir = lang === "nb" ? "/nb" : "";
+  const partialsSubDir = lang === "nb" ? "nb/" : ""; // Note: trailing slash
 
-  // Load header and footer
+  // Load header and footer using a robust absolute path
   await loadPartial(
     "header-placeholder",
-    `/partials${partialsSubDir}/header.html`,
+    `/partials/${partialsSubDir}header.html`,
   );
   await loadPartial(
     "footer-placeholder",
-    `/partials${partialsSubDir}/footer.html`,
+    `/partials/${partialsSubDir}footer.html`,
   );
 
   // --- IMPORTANT: Run other DOM-dependent scripts AFTER partials are loaded ---
 
   // --- Setup Language Switcher ---
+  // This must run *after* the header is loaded into the DOM
   setupLanguageSwitcher();
 
   // --- Copyright Year Logic ---
