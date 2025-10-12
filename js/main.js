@@ -148,4 +148,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   } else {
     document.getElementById("image-carousel")?.classList.add("hidden");
   }
+
+  // --- Accordion Logic ---
+  const accordionButtons = document.querySelectorAll(".accordion-button");
+
+  accordionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const accordionContent = button.nextElementSibling;
+      const accordionIcon = button.querySelector(".accordion-icon");
+
+      button.classList.toggle("active");
+      accordionIcon.classList.toggle("rotate-180");
+
+      if (button.classList.contains("active")) {
+        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+      } else {
+        accordionContent.style.maxHeight = "0px";
+      }
+    });
+  });
 });
