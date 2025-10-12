@@ -6,19 +6,19 @@ module.exports = {
     "./terms/index.html",
     "./booking/index.html",
     "./care/index.html",
-    "./contract.*/index.html",
-    "./fb/index.html",
-    "./ig/index.html",
-    "./link/index.html",
-    "./map/index.html",
-    "./msg/index.html",
-    "./review/index.html",
+    "./contract./index.html",
+    "./faq/index.html", // Add new faq page
+    "./no/**/*.html", // Add all Norwegian pages
     "./partials/**/*.html",
-    // Add any JS files that might have Tailwind classes
     "./js/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Add this screens object
+      screens: {
+        "3xl": "1920px",
+      },
+    },
   },
   plugins: [],
-}
+};
