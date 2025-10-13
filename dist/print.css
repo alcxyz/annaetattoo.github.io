@@ -1,0 +1,31 @@
+/* dist/print.css */
+@media print {
+  /* Hide elements that are not useful on a printed page */
+  header,
+  footer,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Ensure a clean, readable printout on white paper */
+  body,
+  main {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Remove any lingering link colors for a uniform look */
+  a {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+
+  /* Ensure headings are black */
+  h1,
+  h2,
+  h3 {
+    color: #000000 !important;
+  }
+}

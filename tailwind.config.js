@@ -7,8 +7,8 @@ module.exports = {
     "./booking/index.html",
     "./care/index.html",
     "./contract./index.html",
-    "./faq/index.html", // Add new faq page
-    "./no/**/*.html", // Add all Norwegian pages
+    "./faq/index.html",
+    "./no/**/*.html",
     "./partials/**/*.html",
     "./js/**/*.js",
   ],
