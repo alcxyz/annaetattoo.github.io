@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     function toggleMenu() {
       offCanvasMenu.classList.toggle("open");
       offCanvasOverlay.classList.toggle("open");
+      document.body.classList.toggle("overflow-hidden");
     }
     mobileMenuButton.addEventListener("click", toggleMenu);
     closeMenuButton.addEventListener("click", toggleMenu);
