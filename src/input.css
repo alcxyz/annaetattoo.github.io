@@ -67,3 +67,6 @@ strong { @apply text-fuchsia-200; }
 .carousel-indicator.active {
     @apply bg-fuchsia-200;
 }
+.contact-button {
+  @apply inline-flex items-center gap-x-2 rounded-lg bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-100 transition-colors hover:bg-zinc-700;
+}
