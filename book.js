@@ -1,4 +1,3 @@
-<script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
-<script type="text/javascript">
-    var widget = new SimplybookWidget({"widget_type":"iframe","url":"https:\/\/aetattoo.simplybook.it","theme":"concise","theme_settings":{"timeline_hide_unavailable":"1","hide_past_days":"0","timeline_show_end_time":"0","timeline_modern_display":"as_slots","light_font_color":"#ffffff","sb_secondary_base":"#0c0b05","sb_base_color":"#fcab10","display_item_mode":"block","booking_nav_bg_color":"#ffffff","sb_review_image":"","dark_font_color":"#0c0b05","btn_color_1":"#dda436","sb_company_label_color":"#ffffff","hide_img_mode":"1","show_sidebar":"1","sb_busy":"#c7b3b3","sb_available":"#e2eaec"},"timeline":"modern","datepicker":"top_calendar","is_rtl":false,"app_config":{"clear_session":0,"allow_switch_to_ada":0,"predefined":{"provider":"2","location":"1"}}});
-</script>
+<!-- Elfsight Appointment Booking | annae.tattoo Appointment Booking -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-7175524f-45be-48d7-8006-82ec694c134d" data-elfsight-app-lazy></div>
