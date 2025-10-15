@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://annae.tattoo/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>1.0</priority>
     <xhtml:link 
                rel="alternate"
@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://annae.tattoo/no/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>1.0</priority>
     <xhtml:link 
                rel="alternate"
@@ -31,7 +31,7 @@
   
   <url>
     <loc>https://annae.tattoo/price</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.8</priority>
     <xhtml:link 
                rel="alternate"
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://annae.tattoo/no/price</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.8</priority>
     <xhtml:link 
                rel="alternate"
@@ -58,7 +58,7 @@
   
   <url>
     <loc>https://annae.tattoo/terms</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.5</priority>
     <xhtml:link 
                rel="alternate"
@@ -71,7 +71,7 @@
   </url>
   <url>
     <loc>https://annae.tattoo/no/terms</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.5</priority>
     <xhtml:link 
                rel="alternate"
@@ -85,7 +85,7 @@
 
   <url>
     <loc>https://annae.tattoo/faq</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.5</priority>
     <xhtml:link 
                rel="alternate"
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://annae.tattoo/no/faq</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.5</priority>
     <xhtml:link 
                rel="alternate"
@@ -112,7 +112,7 @@
 
   <url>
     <loc>https://annae.tattoo/care</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.5</priority>
     <xhtml:link 
                rel="alternate"
@@ -125,7 +125,7 @@
   </url>
   <url>
     <loc>https://annae.tattoo/no/care</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <priority>0.5</priority>
     <xhtml:link 
                rel="alternate"
@@ -135,5 +135,32 @@
                rel="alternate"
                hreflang="en"
                href="https://annae.tattoo/care"/>
+  </url>
+
+  <url>
+    <loc>https://annae.tattoo/booking</loc>
+    <lastmod>2025-10-15</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="nb"
+               href="https://annae.tattoo/no/booking"/>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://annae.tattoo/booking"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/booking</loc>
+    <lastmod>2025-10-15</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="nb"
+               href="https://annae.tattoo/no/booking"/>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://annae.tattoo/booking"/>
   </url>
 </urlset>
