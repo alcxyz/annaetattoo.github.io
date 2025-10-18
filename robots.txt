@@ -1,4 +1,14 @@
 User-agent: *
-Disallow:
+Disallow: /partials/
+Disallow: /src/
+Disallow: /js/
+Disallow: /dist/
+Disallow: /gdrive/
+Disallow: /fb/
+Disallow: /ig/
+Disallow: /map/
+Disallow: /msg/
+Disallow: /review/
+Disallow: /link/
 
 Sitemap: https://annae.tattoo/sitemap.xml

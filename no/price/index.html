@@ -15,165 +15,188 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "OfferCatalog",
-      "@id": "https://annae.tattoo/no/price#catalog",
-      "name": "Prisliste for PMU og skjønnhetstjenester",
-      "description": "Komplett prisoversikt for permanent makeup, tatoveringsfjerning og skjønnhetstjenester",
-      "provider": {
-        "@type": "BeautySalon",
-        "@id": "https://annae.tattoo/#business",
-        "name": "annae.tattoo",
-        "url": "https://annae.tattoo/no/"
+      "@type": "WebPage",
+      "name": "Prisliste for Permanent Makeup & Tatoveringsfjerning | annae.tattoo",
+      "url": "https://annae.tattoo/no/price",
+      "isPartOf": {
+        "@id": "https://annae.tattoo/#business"
       },
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#powder-brows",
-          "name": "PMU Øyenbryn (Ombre Powder Brows)",
-          "price": "4000",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "PMU Øyenbryn (Ombre Powder Brows)",
-            "serviceType": "Permanent Makeup"
-          }
+      "mainEntity": {
+        "@type": "OfferCatalog",
+        "name": "Prisliste for PMU og skjønnhetstjenester",
+        "provider": {
+          "@id": "https://annae.tattoo/#business"
         },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#eyelids",
-          "name": "PMU Eyeliner (mellom vippene)",
-          "price": "4000",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "PMU Eyeliner (mellom vippene)",
-            "serviceType": "Permanent Makeup"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#lips",
-          "name": "PMU Lepper (full farge)",
-          "price": "4000",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "PMU Lepper (full farge)",
-            "serviceType": "Permanent Makeup"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#trilogy",
-          "name": "Signatur Elite Trilogi (3x førstegangsbehandlinger)",
-          "price": "9000",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Signatur Elite Trilogi",
-            "serviceType": "Permanent Makeup Package"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#dual",
-          "name": "Dual Deluxe Utvalg (2x førstegangsbehandlinger)",
-          "price": "6800",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Dual Deluxe Utvalg",
-            "serviceType": "Permanent Makeup Package"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#corrective",
-          "name": "PMU Korrigeringsøkt",
-          "price": "2000",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "PMU Korrigeringsøkt",
-            "serviceType": "Permanent Makeup"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#second-corrective",
-          "name": "Andre Korrigeringsøkt",
-          "price": "1000",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Andre Korrigeringsøkt",
-            "serviceType": "Permanent Makeup"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#renewal",
-          "name": "Fornyelse av tatovering",
-          "price": "3500",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Fornyelse av tatovering",
-            "serviceType": "Permanent Makeup"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#removal",
-          "name": "PMU/Tatoveringsfjerning (CRC)",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "NOK",
-            "minPrice": 1500
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup",
+              "name": "PMU Øyenbryn (Ombre Powder Brows)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "4000",
+              "priceCurrency": "NOK"
+            }
           },
-          "itemOffered": {
-            "@type": "Service",
-            "name": "PMU/Tatoveringsfjerning (CRC)",
-            "serviceType": "Tattoo Removal"
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup",
+              "name": "PMU Eyeliner (mellom vippene)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "4000",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup",
+              "name": "PMU Lepper (full farge)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "4000",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup Package",
+              "name": "Signatur Elite Trilogi (3x førstegangsbehandlinger)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "9000",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup Package",
+              "name": "Dual Deluxe Utvalg (2x førstegangsbehandlinger)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "6800",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup",
+              "name": "PMU Korrigeringsøkt"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "2000",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup",
+              "name": "Andre Korrigeringsøkt"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "1000",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Permanent Makeup",
+              "name": "Fornyelse av tatovering"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "3500",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Tattoo Removal",
+              "name": "PMU/Tatoveringsfjerning (CRC)"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 1500,
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Beauty Treatment",
+              "name": "Forming av øyenbryn"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "300",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Beauty Treatment",
+              "name": "Farging av øyenbryn"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "200",
+              "priceCurrency": "NOK"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Beauty Treatment",
+              "name": "Hårfjerning i ansiktet"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "100",
+              "priceCurrency": "NOK"
+            }
           }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#eyebrow-shaping",
-          "name": "Forming av øyenbryn",
-          "price": "300",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Forming av øyenbryn",
-            "serviceType": "Beauty Treatment"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#eyebrow-tinting",
-          "name": "Farging av øyenbryn",
-          "price": "200",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Farging av øyenbryn",
-            "serviceType": "Beauty Treatment"
-          }
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://annae.tattoo/no/price#facial-hair-removal",
-          "name": "Hårfjerning i ansiktet",
-          "price": "100",
-          "priceCurrency": "NOK",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Hårfjerning i ansiktet",
-            "serviceType": "Beauty Treatment"
-          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://annae.tattoo/booking",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
         }
-      ]
+      }
     }
     </script>
 
@@ -388,7 +411,7 @@
             <div class="elfsight-app-e7c225a5-cb54-4ab6-a56d-8a4a3e6f8909" data-elfsight-app-lazy></div>
         </div>
         <p class="text-center mt-12">
-            <a href="/no/" class="text-fuchsia-200 hover:underline">Tilbake til forsiden</a>
+            <a href="/no" class="text-fuchsia-200 hover:underline">Tilbake til forsiden</a>
         </p>
     </main>
 
