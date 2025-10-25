@@ -6,7 +6,7 @@ module.exports = {
     "./terms/index.html",
     "./booking/index.html",
     "./care/index.html",
-    "./contract./index.html",
+    "./gdrive/contract/index.html",
     "./faq/index.html",
     "./no/**/*.html",
     "./partials/**/*.html",
