@@ -169,8 +169,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 });
-<<<<<<< Updated upstream
-=======
 
 // --- Booking Modal (simple, no widget logic) ---
 (function bookingModal() {
@@ -236,4 +234,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 })();
->>>>>>> Stashed changes
