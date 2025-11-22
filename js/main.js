@@ -177,6 +177,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const html = document.documentElement;
   const openers = document.querySelectorAll("[data-booking]");
+  const closers = modal.querySelectorAll("[data-close]");
 
   let lastFocus = null;
   let scrollY = 0;
@@ -211,20 +212,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // Prevent clicks inside dialog from closing it
-  const dialog = modal.querySelector('[role="dialog"]');
-  if (dialog) {
-    dialog.addEventListener("click", (e) => e.stopPropagation());
-  }
-
   // Openers
   openers.forEach((btn) => btn.addEventListener("click", openModal));
 
-  // Close on overlay or [data-close] buttons
-  modal.addEventListener("click", (e) => {
-    if (e.target.matches("[data-close]")) {
+  // Close on any [data-close] (overlay + X button)
+  closers.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
       closeModal();
-    }
+    });
   });
 
   // Close on ESC
