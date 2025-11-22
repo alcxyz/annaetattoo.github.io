@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+<<<<<<< Updated upstream
 	// Define the port the server will run on.
 	port := "8089"
 
@@ -24,4 +25,14 @@ func main() {
 	// Start the HTTP server.
 	// log.Fatal will print any error and exit if the server fails to start.
 	log.Fatal(http.ListenAndServe(":"+port, nil))
+=======
+	// Serve from current directory (repo root)
+	fs := http.FileServer(http.Dir("."))
+
+	http.Handle("/", fs)
+
+	addr := ":8089"
+	log.Printf("Local dev server on http://localhost%s\n", addr)
+	log.Fatal(http.ListenAndServe(addr, nil))
+>>>>>>> Stashed changes
 }

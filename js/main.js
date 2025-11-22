@@ -169,3 +169,71 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 });
+<<<<<<< Updated upstream
+=======
+
+// --- Booking Modal (simple, no widget logic) ---
+(function bookingModal() {
+  const modal = document.getElementById("booking-modal");
+  if (!modal) return;
+
+  const html = document.documentElement;
+  const openers = document.querySelectorAll("[data-booking]");
+
+  let lastFocus = null;
+  let scrollY = 0;
+
+  function openModal() {
+    lastFocus = document.activeElement;
+    scrollY = window.scrollY;
+
+    // Lock background scroll
+    html.style.top = `-${scrollY}px`;
+    html.classList.add("overflow-hidden");
+
+    modal.classList.remove("hidden");
+
+    // Move focus into modal
+    setTimeout(() => {
+      modal.querySelector("[data-close]")?.focus();
+    }, 0);
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+
+    // Restore scroll
+    html.classList.remove("overflow-hidden");
+    html.style.top = "";
+    window.scrollTo(0, scrollY);
+
+    // Restore focus
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
+  }
+
+  // Prevent clicks inside dialog from closing it
+  const dialog = modal.querySelector('[role="dialog"]');
+  if (dialog) {
+    dialog.addEventListener("click", (e) => e.stopPropagation());
+  }
+
+  // Openers
+  openers.forEach((btn) => btn.addEventListener("click", openModal));
+
+  // Close on overlay or [data-close] buttons
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) {
+      closeModal();
+    }
+  });
+
+  // Close on ESC
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+})();
+>>>>>>> Stashed changes
