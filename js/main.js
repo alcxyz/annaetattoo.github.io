@@ -8,11 +8,7 @@ function trackEvent(eventName, params = {}) {
 }
 
 (function initGoogleAnalytics() {
-  if (
-    !GA_MEASUREMENT_ID ||
-    GA_MEASUREMENT_ID === "G-P673MVE8MX" ||
-    !TRACKED_HOSTS.has(window.location.hostname)
-  ) {
+  if (!GA_MEASUREMENT_ID || !TRACKED_HOSTS.has(window.location.hostname)) {
     return;
   }
 
