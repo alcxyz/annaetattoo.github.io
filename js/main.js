@@ -1,3 +1,100 @@
+// --- Google Analytics Logic ---
+const GA_MEASUREMENT_ID = "G-P673MVE8MX";
+const TRACKED_HOSTS = new Set(["annae.tattoo", "www.annae.tattoo"]);
+
+function trackEvent(eventName, params = {}) {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, params);
+}
+
+(function initGoogleAnalytics() {
+  if (
+    !GA_MEASUREMENT_ID ||
+    GA_MEASUREMENT_ID === "G-P673MVE8MX" ||
+    !TRACKED_HOSTS.has(window.location.hostname)
+  ) {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src =
+    `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(script);
+
+  window.gtag("js", new Date());
+  window.gtag("config", GA_MEASUREMENT_ID, {
+    page_title: document.title,
+    page_path: window.location.pathname + window.location.search,
+    page_location: window.location.href,
+  });
+})();
+
+// --- Google Analytics Event Tracking Logic ---
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link) return;
+
+  const href = link.getAttribute("href") || "";
+  const normalizedHref = href.toLowerCase();
+  const linkText =
+    link.textContent.trim() || link.getAttribute("aria-label") || href;
+
+  let eventName = null;
+
+  if (normalizedHref.startsWith("tel:")) {
+    eventName = "phone_click";
+  } else if (normalizedHref.startsWith("sms:")) {
+    eventName = "sms_click";
+  } else if (normalizedHref.startsWith("mailto:")) {
+    eventName = "email_click";
+  } else if (
+    normalizedHref === "/msg" ||
+    normalizedHref.includes("wa.me/") ||
+    normalizedHref.includes("whatsapp")
+  ) {
+    eventName = "whatsapp_click";
+  } else if (
+    normalizedHref === "/ig" ||
+    normalizedHref.includes("instagram.com/")
+  ) {
+    eventName = "instagram_click";
+  } else if (
+    normalizedHref.includes("m.me/") ||
+    normalizedHref.includes("messenger.com/")
+  ) {
+    eventName = "messenger_click";
+  } else if (
+    normalizedHref === "/fb" ||
+    normalizedHref.includes("facebook.com/")
+  ) {
+    eventName = "facebook_click";
+  } else if (normalizedHref === "/review") {
+    eventName = "review_click";
+  } else if (
+    normalizedHref === "/map" ||
+    normalizedHref.includes("google.com/maps") ||
+    normalizedHref.includes("maps.google.")
+  ) {
+    eventName = "map_click";
+  } else if (normalizedHref.startsWith("/gdrive/contract/")) {
+    eventName = "contract_click";
+  }
+
+  if (!eventName) return;
+
+  trackEvent(eventName, {
+    link_text: linkText,
+    link_url: link.href,
+    page_path: window.location.pathname + window.location.search,
+  });
+});
+
 // --- Partial Injection Logic (Header, Footer) ---
 async function loadPartial(id, url) {
   try {
@@ -191,6 +288,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     html.classList.add("overflow-hidden");
 
     modal.classList.remove("hidden");
+
+    trackEvent("booking_open", {
+      page_path: window.location.pathname + window.location.search,
+    });
 
     // Move focus into modal
     setTimeout(() => {
