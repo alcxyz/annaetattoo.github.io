@@ -287,7 +287,7 @@
         <!-- Booking Widget Section -->
         <div class="mt-16 pt-6 border-t border-zinc-800 text-fuchsia-200 text-center pb-8">
             <h3 class="text-3xl font-bold text-zinc-50 mb-6 text-center">Bestill din time</h3>
-            <button class="contact-button" data-booking>Book now</button>
+            <a href="/no/booking" class="contact-button">Book Nå</a>
         </div>
         <p class="text-center mt-12">
             <a href="/no" class="text-fuchsia-200 hover:underline">Tilbake til forsiden</a>
@@ -297,23 +297,6 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder" class="w-full"></div>
-
-    <div id="booking-modal" class="fixed inset-0 z-50 hidden">
-      <div class="absolute inset-0 bg-black/70" data-close></div>
-      <div class="relative mx-auto my-6 w-[95vw] max-w-3xl h-[85vh] bg-zinc-900 rounded-lg border border-zinc-800 shadow-2xl flex flex-col" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
-        <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
-          <h2 id="booking-modal-title" class="sr-only">Book your appointment</h2>
-          <a id="booking-open-page" href="/booking/" target="_blank" rel="noopener" class="text-sm text-fuchsia-200 hover:underline">Open full booking page</a>
-          <button class="p-2 rounded hover:bg-zinc-800" aria-label="Close" data-close>
-            <i class="fas fa-times text-zinc-200"></i>
-          </button>
-        </div>
-        <div class="relative flex-1 overflow-auto p-4">
-            <!-- Elfsight Appointment Booking | annae.tattoo Appointment Booking (English) -->
-            <div class="elfsight-app-38f7000d-00aa-4002-9335-6564fa765742" data-elfsight-app-lazy></div>
-        </div>
-      </div>
-    </div>
 
     <script src="/js/main.js"></script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
