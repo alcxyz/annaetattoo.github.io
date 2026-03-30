@@ -6,7 +6,7 @@
  Disallow: /ig/
  Disallow: /map/
  Disallow: /msg/
-Disallow: /review/
+ Disallow: /review/
  Disallow: /link/
  
  Sitemap: https://annae.tattoo/sitemap.xml
