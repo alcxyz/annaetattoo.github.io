@@ -19,21 +19,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Create output directory
-        run: mkdir -p ./public/dist
-
-      - name: Install Tailwind CSS
-        run: |
-          npm init -y
-          npm install -D tailwindcss@3.4.13
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build Tailwind CSS
-        run: |
-          rm -f ./public/dist/style.css  # Remove any existing file
-          ./node_modules/.bin/tailwindcss -c ./tailwind.config.js -i ./src/input.css -o ./public/dist/style.css --minify
+        run: npm run build
 
       - name: Copy static assets to output directory
         run: |
+          mkdir -p ./public/dist
           rsync -av --exclude 'public/' \
                     --exclude '.git/' \
                     --exclude '.github/' \
