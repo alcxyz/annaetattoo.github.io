@@ -1,0 +1,11 @@
+{
+  "name": "annaetattoo",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o dist/style.css --minify",
+    "watch": "tailwindcss -i src/input.css -o dist/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
