@@ -20,6 +20,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo"/>
   </url>
 
+  <!-- Services Index -->
+  <url>
+    <loc>https://annae.tattoo/services</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/services"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/services</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/services"/>
+  </url>
+
   <!-- Powder Brows -->
   <url>
     <loc>https://annae.tattoo/powder-brows</loc>
@@ -216,6 +234,122 @@
     <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/terms"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/terms"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/terms"/>
+  </url>
+
+  <!-- Guide Index -->
+  <url>
+    <loc>https://annae.tattoo/guide</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide"/>
+  </url>
+
+  <!-- Guides -->
+  <url>
+    <loc>https://annae.tattoo/guide/powder-brows-healing</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/powder-brows-heling"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/powder-brows-healing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/powder-brows-healing"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide/powder-brows-heling</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/powder-brows-heling"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/powder-brows-healing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/powder-brows-healing"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/guide/powder-brows-vs-microblading</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/powder-brows-vs-microblading"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/powder-brows-vs-microblading"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/powder-brows-vs-microblading"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide/powder-brows-vs-microblading</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/powder-brows-vs-microblading"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/powder-brows-vs-microblading"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/powder-brows-vs-microblading"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/guide/avoid-harsh-brows</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/tusj-bryn"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/avoid-harsh-brows"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/avoid-harsh-brows"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide/tusj-bryn</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/tusj-bryn"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/avoid-harsh-brows"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/avoid-harsh-brows"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/guide/pmu-active-lifestyle</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/pmu-aktiv-livsstil"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/pmu-active-lifestyle"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/pmu-active-lifestyle"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide/pmu-aktiv-livsstil</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/pmu-aktiv-livsstil"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/pmu-active-lifestyle"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/pmu-active-lifestyle"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/guide/lip-blush-healing</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/lip-blush-heling"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/lip-blush-healing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/lip-blush-healing"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/guide/pmu-mature-skin</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/pmu-moden-hud"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/pmu-mature-skin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/pmu-mature-skin"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide/pmu-moden-hud</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/pmu-moden-hud"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/pmu-mature-skin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/pmu-mature-skin"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/guide/lip-blush-heling</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/guide/lip-blush-heling"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/guide/lip-blush-healing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/lip-blush-healing"/>
   </url>
 
   <!-- Aftercare -->
