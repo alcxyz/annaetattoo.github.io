@@ -29,19 +29,21 @@ Topics that fail criterion 2 (purely post-booking service, e.g. "how to wash you
 
 **Tier 1 — Build next**
 High search volume + direct purchase intent + objection removal:
-- How long does PMU last / when to refresh (longevity questions, targets repeat and prospective clients)
+- ~~How long does PMU last / when to refresh~~ (done: `/guide/pmu-longevity`)
 
 **Tier 2 — Build when Tier 1 is done**
 Narrower audience but high conversion when found:
-- PMU before your appointment: what to do and avoid (pre-care)
-- PMU and oily skin (very common concern, currently addressed inside vs-microblading guide but could stand alone)
-- First PMU session: what to expect (general pre-booking reassurance)
+- ~~PMU before your appointment: what to do and avoid~~ (done: `/guide/pmu-pre-care`)
+- ~~PMU and oily skin~~ (done: `/guide/pmu-oily-skin`)
+- ~~First PMU session: what to expect~~ (done: `/guide/first-pmu-session`)
 
 **Tier 3 — Consider later**
 Lower volume or harder to rank:
 - PMU for brides / special occasions
 - PMU and skin conditions
 - The consultation process explained
+- ~~PMU cost-benefit / is PMU worth it~~ (done: `/guide/pmu-cost-benefit`)
+- ~~Touch-up and refresh: required, optional, yearly~~ (done: `/guide/touch-up-and-refresh`)
 
 ### Current guides (as of April 2026)
 
@@ -53,6 +55,12 @@ Lower volume or harder to rank:
 | PMU for an active lifestyle | Audience match, "is this for me" |
 | Lip blush healing | Post-consideration trust, targets `/permanent-lips` audience |
 | PMU for mature skin | Objection removal, underserved audience, targets `/powder-brows` |
+| How long does PMU last (longevity) | Repeat and prospective clients, longevity questions |
+| Before your PMU appointment (pre-care) | High-conversion pre-booking preparation |
+| Your first PMU appointment | First-timer reassurance, step-by-step walkthrough |
+| Is PMU worth the cost | Price objection removal, opportunity cost framing |
+| PMU and oily skin | Skin type objection removal, microblading vs powder brows |
+| Touch-up and refresh | Post-booking clarity, required vs optional vs yearly |
 
 The comparison and objection-removal guides (tiers most likely to rank) were built first. The healing guides build trust for readers who found the site through other queries.
 
@@ -167,6 +175,10 @@ Use this pattern until real images are available. Images go at natural "breathin
 | `lip-healing-healed.jpg` | Fully healed lip blush — week 6 |
 | `mature-skin-result.jpg` | Natural powder brows result on mature skin |
 | `mature-skin-healing.jpg` | Warm, soft color on fair/mature skin — healed |
+| `pmu-refresh.jpg` | Touch-up / refresh appointment result |
+| `pmu-longevity-timeline.jpg` | Visual showing color fade over time |
+| `pre-care-skin.jpg` | Clean, prepped skin before the appointment |
+| `pre-care-avoid.jpg` | Products and activities to avoid before PMU |
 
 New guides should either reuse existing image slots where appropriate or add new entries to this table.
 
