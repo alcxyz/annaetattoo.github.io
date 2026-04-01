@@ -4,13 +4,13 @@
 
 | Dimension | Score | Biggest Gap |
 |---|---|---|
-| SEO | 8/10 | Missing `AggregateRating` schema, corrupted robots.txt (fixed) |
-| Discoverability | 6/10 | No content strategy beyond service pages |
+| SEO | 9/10 | Booking page underweighted in sitemap |
+| Discoverability | 7/10 | No content strategy beyond service pages |
 | Client Acquisition | 7/10 | Missing actual images on service pages |
 
 ---
 
-## SEO — 8/10
+## SEO — 9/10
 
 ### Strengths
 - Comprehensive structured data: `BeautySalon` schema with address, geo, opening hours, payment methods, offers catalog, `sameAs` social links
@@ -18,26 +18,26 @@
 - hreflang properly implemented for EN/NB with `x-default`
 - Canonical tags, OG/Twitter cards, sitemap with hreflang cross-references
 - Keyword-rich titles and meta descriptions with location ("Drammen & Greater Oslo")
-- robots.txt blocking redirect-only utility pages
+- robots.txt correctly blocking redirect-only utility pages — fixed 2026-04-01
+- `/contact` and `/no/contact` present in sitemap — fixed 2026-04-01
 
-### Issues
-- **robots.txt was corrupted** — file contained a git diff patch instead of valid directives. Fixed 2026-04-01.
-- **/contact missing from sitemap** — contact page existed but was absent from sitemap.xml. Fixed 2026-04-01.
-- **`AggregateRating` schema not viable with current setup** — requires first-party reviews collected on the site itself. Google's guidelines explicitly prohibit using third-party review data (e.g. Google Business Profile via Elfsight) to populate this schema; doing so risks a manual penalty. Stars in the Knowledge Panel and Maps come from GBP automatically and need no schema. Organic result star snippets would require building a first-party review collection system.
-- **Booking page at priority 0.6** in sitemap — arguably underweighted for the primary conversion page
+### Remaining Issues
+- **Booking page at priority 0.6** in sitemap — underweighted for the primary conversion page; 0.8 would be more appropriate
+- **`AggregateRating` schema not applicable** — requires first-party reviews collected on the site itself. Google prohibits using third-party review data (GBP/Elfsight) for this; doing so risks a manual penalty. Stars in the Knowledge Panel and Maps come from GBP automatically. Not a gap to action unless a native review system is built.
 
 ---
 
-## Discoverability — 6/10
+## Discoverability — 7/10
 
 ### Strengths
 - Bilingual site (EN + NB) doubles surface area for Norwegian searches
 - Dedicated service pages for each treatment = multiple ranking opportunities
 - Service names in URLs are search-intent aligned (`/powder-brows`, `/permanent-lips`, etc.)
 - Sitemap submitted and referenced in robots.txt
+- GBP reviews active and displayed on site — stars show in Maps and Knowledge Panel
 
 ### Gaps
-- **No content beyond service pages** — no blog, no aftercare articles, no "powder brows vs microblading" comparisons. These are high-volume queries with clear purchase intent.
+- **No content beyond service pages** — no articles, no comparisons (e.g. powder brows vs microblading), no aftercare guides as standalone content. These are high-volume queries with clear purchase intent that currently go entirely to competitors.
 
 ---
 
@@ -63,12 +63,12 @@
 | Issue | Status |
 |---|---|
 | robots.txt contained git diff instead of valid directives | Fixed |
-| /contact and /no/contact missing from sitemap.xml | Fixed |
+| `/contact` and `/no/contact` missing from sitemap.xml | Fixed |
+
+---
 
 ## Recommended Next Steps (Priority Order)
 
 1. Add real photos to all service pages (highest conversion impact)
-2. `AggregateRating` schema — skip unless a first-party review system is built; using Elfsight/GBP data for this violates Google's guidelines
-3. Add `/contact` page — already fixed in sitemap, verify page has full content
-4. Consider a simple content page (e.g. powder brows vs microblading) to capture comparison queries
-5. Raise booking page sitemap priority to 0.8
+2. Raise booking page sitemap priority from 0.6 to 0.8
+3. Consider a content page targeting a comparison query (e.g. powder brows vs microblading)
