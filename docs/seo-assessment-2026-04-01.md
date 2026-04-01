@@ -22,7 +22,7 @@
 - `/contact` and `/no/contact` present in sitemap — fixed 2026-04-01
 
 ### Remaining Issues
-- **Booking page at priority 0.6** in sitemap — underweighted for the primary conversion page; 0.8 would be more appropriate
+- **Booking page at priority 0.6** in sitemap — appropriate as-is. The page contains almost no indexable content (the booking widget is Elfsight-rendered JavaScript). No one discovers a business through its booking page, so higher priority would just tell Google to crawl a thin page more often.
 - **`AggregateRating` schema not applicable** — requires first-party reviews collected on the site itself. Google prohibits using third-party review data (GBP/Elfsight) for this; doing so risks a manual penalty. Stars in the Knowledge Panel and Maps come from GBP automatically. Not a gap to action unless a native review system is built.
 
 ---
@@ -70,5 +70,4 @@
 ## Recommended Next Steps (Priority Order)
 
 1. Add real photos to all service pages (highest conversion impact)
-2. Raise booking page sitemap priority from 0.6 to 0.8
-3. Consider a content page targeting a comparison query (e.g. powder brows vs microblading)
+2. Consider a content page targeting a comparison query (e.g. powder brows vs microblading)
