@@ -141,10 +141,13 @@
           Pudderbryn, lip blush, permanent eyeliner og PMU-restaurering, tilpasset for naturlige eller mer markerte resultater som varer. Lett tilgjengelig fra Oslo, Asker, Bærum og Lier.
         </p>
         <p class="text-zinc-500 text-sm text-center mb-8">Kun etter avtale. Studio sentralt i Drammen.</p>
-        <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <div class="flex flex-col items-center gap-3 mb-10">
           <button class="contact-button" data-booking>Bestill time</button>
-          <a href="/no/portfolio" class="contact-button">Se portefølje</a>
-          <a href="/no/price" class="contact-button">Tjenester & priser</a>
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-zinc-400">
+            <a href="/no/services" class="hover:text-zinc-200 transition-colors">Tjenester &rarr;</a>
+            <a href="/no/price" class="hover:text-zinc-200 transition-colors">Priser &rarr;</a>
+            <a href="/no/portfolio" class="hover:text-zinc-200 transition-colors">Portefølje &rarr;</a>
+          </div>
         </div>
 
         <!-- Instagram Feed -->
@@ -272,20 +275,24 @@
             <!-- Ikke sikker ennå -->
             <div class="mt-16 pt-6 border-t border-zinc-800 text-center">
                 <h3 class="text-xl font-semibold text-zinc-100 mb-3">Ikke sikker ennå?</h3>
-                <p class="text-zinc-300 mb-2">Raske spørsmål? Bruk chatten nede til høyre. Den er alltid tilgjengelig.</p>
-                <p class="text-zinc-400 text-sm mb-6">Vil du sende bilder eller diskutere din situasjon, skriv til oss på den plattformen du foretrekker. Anna svarer personlig.</p>
-                <div class="flex flex-wrap items-center justify-center gap-3 mb-4">
-                    <a href="/msg" target="_blank" rel="noopener" class="contact-button"><i class="fab fa-whatsapp fa-fw"></i> WhatsApp</a>
-                    <a href="https://m.me/annae.tattoo" target="_blank" rel="noopener" class="contact-button"><i class="fab fa-facebook-messenger fa-fw"></i> Messenger</a>
-                    <a href="/ig" target="_blank" rel="noopener" class="contact-button"><i class="fab fa-instagram fa-fw"></i> Instagram</a>
-                    <a href="sms:+4746677142" class="contact-button"><i class="fas fa-comment-sms fa-fw"></i> SMS / iMessage</a>
+                <p class="text-zinc-300 mb-2">Den raskeste måten å få svar på er chatten nede til høyre — den har øyeblikkelig tilgang til alt på dette nettstedet og besvarer de fleste spørsmål med en gang.</p>
+                <p class="text-zinc-400 text-sm mb-6">Foretrekker du å lese i ditt eget tempo? Bla gjennom våre veiledninger om tilheling, teknikk og hva du kan vente.</p>
+                <div class="flex flex-col items-center gap-3">
+                    <a href="/no/guide" class="contact-button">Se veiledninger</a>
+                    <p class="text-sm text-zinc-500">Trenger du et personlig svar eller vil sende bilder? <a href="/no/contact" class="text-fuchsia-200 hover:underline">Skriv til Anna direkte.</a></p>
                 </div>
             </div>
 
             <!-- Bestill time -->
             <div class="mt-16 pt-6 border-t border-zinc-800 text-center pb-8">
                 <h3 class="text-3xl font-bold text-zinc-50 mb-6 text-center">Bestill din time</h3>
-                <a href="/no/booking" class="contact-button">Book Nå</a>
+                <div class="flex flex-col items-center gap-3">
+                    <a href="/no/booking" class="contact-button">Bestill nå</a>
+                    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-zinc-400">
+                        <a href="/no/guide" class="hover:text-zinc-200 transition-colors">Se veiledninger &rarr;</a>
+                        <a href="/no/contact" class="hover:text-zinc-200 transition-colors">Still et spørsmål &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
 

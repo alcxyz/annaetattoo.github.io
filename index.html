@@ -141,10 +141,13 @@
           Powder brows, lip blush, permanent eyeliner, and PMU restoration, tailored for natural or polished results that last. Easy to reach from Oslo, Asker, Bærum, and Lier.
         </p>
         <p class="text-zinc-500 text-sm text-center mb-8">By appointment only. Studio in central Drammen.</p>
-        <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <div class="flex flex-col items-center gap-3 mb-10">
           <button class="contact-button" data-booking>Book Appointment</button>
-          <a href="/portfolio" class="contact-button">View Portfolio</a>
-          <a href="/price" class="contact-button">Services & Pricing</a>
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-zinc-400">
+            <a href="/services" class="hover:text-zinc-200 transition-colors">Services &rarr;</a>
+            <a href="/price" class="hover:text-zinc-200 transition-colors">Pricing &rarr;</a>
+            <a href="/portfolio" class="hover:text-zinc-200 transition-colors">Portfolio &rarr;</a>
+          </div>
         </div>
 
         <!-- Instagram Feed -->
@@ -272,20 +275,24 @@
             <!-- Not Sure Yet -->
             <div class="mt-16 pt-6 border-t border-zinc-800 text-center">
                 <h3 class="text-xl font-semibold text-zinc-100 mb-3">Not Sure Yet?</h3>
-                <p class="text-zinc-300 mb-2">For quick questions, use the chat in the bottom right. It's always available.</p>
-                <p class="text-zinc-400 text-sm mb-6">To send photos or discuss your specific situation, write to us on any platform. Anna responds personally.</p>
-                <div class="flex flex-wrap items-center justify-center gap-3 mb-4">
-                    <a href="/msg" target="_blank" rel="noopener" class="contact-button"><i class="fab fa-whatsapp fa-fw"></i> WhatsApp</a>
-                    <a href="https://m.me/annae.tattoo" target="_blank" rel="noopener" class="contact-button"><i class="fab fa-facebook-messenger fa-fw"></i> Messenger</a>
-                    <a href="/ig" target="_blank" rel="noopener" class="contact-button"><i class="fab fa-instagram fa-fw"></i> Instagram</a>
-                    <a href="sms:+4746677142" class="contact-button"><i class="fas fa-comment-sms fa-fw"></i> SMS / iMessage</a>
+                <p class="text-zinc-300 mb-2">The fastest way to get answers is the chat in the bottom right — it has instant access to everything on this site and answers most questions immediately.</p>
+                <p class="text-zinc-400 text-sm mb-6">Prefer to read at your own pace? Browse our guides on healing, technique, and what to expect.</p>
+                <div class="flex flex-col items-center gap-3">
+                    <a href="/guide" class="contact-button">Browse Guides</a>
+                    <p class="text-sm text-zinc-500">Need a personal answer or want to send photos? <a href="/contact" class="text-fuchsia-200 hover:underline">Write to Anna directly.</a></p>
                 </div>
             </div>
 
             <!-- Book CTA -->
             <div class="mt-16 pt-6 border-t border-zinc-800 text-center pb-8">
                 <h3 class="text-3xl font-bold text-zinc-50 mb-6 text-center">Schedule Your Appointment</h3>
-                <a href="/booking" class="contact-button">Book Now</a>
+                <div class="flex flex-col items-center gap-3">
+                    <a href="/booking" class="contact-button">Book Now</a>
+                    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm text-zinc-400">
+                        <a href="/guide" class="hover:text-zinc-200 transition-colors">Browse guides &rarr;</a>
+                        <a href="/contact" class="hover:text-zinc-200 transition-colors">Ask a question &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
 
