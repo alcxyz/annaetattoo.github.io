@@ -263,6 +263,56 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+// --- Calculator Modal ---
+(function calculatorModal() {
+  const modal = document.getElementById("calculator-modal");
+  if (!modal) return;
+
+  const html = document.documentElement;
+  const openers = document.querySelectorAll("[data-calculator]");
+  const closers = modal.querySelectorAll("[data-close]");
+
+  let lastFocus = null;
+  let scrollY = 0;
+
+  function openModal() {
+    lastFocus = document.activeElement;
+    scrollY = window.scrollY;
+    html.style.top = `-${scrollY}px`;
+    html.classList.add("overflow-hidden");
+    modal.classList.remove("hidden");
+    trackEvent("calculator_open", {
+      page_path: window.location.pathname + window.location.search,
+    });
+    setTimeout(() => {
+      modal.querySelector("[data-close]")?.focus();
+    }, 0);
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    html.classList.remove("overflow-hidden");
+    html.style.top = "";
+    window.scrollTo(0, scrollY);
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
+  }
+
+  openers.forEach((btn) => btn.addEventListener("click", openModal));
+  closers.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+})();
+
 // --- Booking Modal (simple, no widget logic) ---
 (function bookingModal() {
   const modal = document.getElementById("booking-modal");

@@ -134,6 +134,11 @@
 
       </div>
 
+      <div class="text-center my-8 p-6 bg-zinc-800/50 rounded-lg border border-zinc-700">
+        <p class="text-zinc-400 mb-4">Curious how much time you would save based on your own routine?</p>
+        <button data-calculator class="contact-button">Calculate your time savings</button>
+      </div>
+
       <h2 class="border-b border-zinc-700 pb-2 mb-4">Why Powder Brows Specifically</h2>
       <p class="text-zinc-300 text-lg leading-relaxed mb-4">
         For all of the audiences above, powder brows are the right technique. The soft, shaded result can be kept very natural or slightly more defined depending on your preference, and it does not carry the risk of looking harsh or overly done.
@@ -182,6 +187,22 @@
     </main>
 
     <div id="footer-placeholder" class="w-full"></div>
+
+    <div id="calculator-modal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/70" data-close></div>
+      <div class="relative mx-auto my-6 w-[95vw] max-w-3xl h-[85vh] bg-zinc-900 rounded-lg border border-zinc-800 shadow-2xl flex flex-col" role="dialog" aria-modal="true" aria-labelledby="calculator-modal-title">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
+          <h2 id="calculator-modal-title" class="sr-only">Time savings calculator</h2>
+          <a href="/calculator" target="_blank" rel="noopener" class="text-sm text-fuchsia-200 hover:underline">Open full calculator page</a>
+          <button class="p-2 rounded hover:bg-zinc-800" aria-label="Close" data-close>
+            <i class="fas fa-times text-zinc-200"></i>
+          </button>
+        </div>
+        <div class="relative flex-1 overflow-auto p-4">
+          <div class="elfsight-app-7377c7db-a4b0-440b-8d4d-d4105500d3f9" data-elfsight-app-lazy></div>
+        </div>
+      </div>
+    </div>
 
     <script src="/js/main.js"></script>
     <script src="https://elfsightcdn.com/platform.js" async></script>

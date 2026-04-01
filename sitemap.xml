@@ -450,6 +450,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/guide/touch-up-and-refresh"/>
   </url>
 
+  <!-- Calculator -->
+  <url>
+    <loc>https://annae.tattoo/calculator</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/calculator"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/calculator</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/calculator"/>
+  </url>
+
   <!-- Aftercare -->
   <url>
     <loc>https://annae.tattoo/care</loc>
