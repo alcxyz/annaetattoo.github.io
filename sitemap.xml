@@ -164,6 +164,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/faq"/>
   </url>
 
+  <!-- Contact -->
+  <url>
+    <loc>https://annae.tattoo/contact</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/contact"/>
+  </url>
+  <url>
+    <loc>https://annae.tattoo/no/contact</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://annae.tattoo/no/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annae.tattoo/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annae.tattoo/contact"/>
+  </url>
+
   <!-- Booking -->
   <url>
     <loc>https://annae.tattoo/booking</loc>
