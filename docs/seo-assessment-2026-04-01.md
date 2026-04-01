@@ -38,7 +38,6 @@
 
 ### Gaps
 - **No content beyond service pages** — no blog, no aftercare articles, no "powder brows vs microblading" comparisons. These are high-volume queries with clear purchase intent.
-- **Social referral pages** (`/fb`, `/ig`, `/msg`) correctly blocked from indexing but the site isn't optimized to capture handoff from Instagram discovery
 
 ---
 
