@@ -23,7 +23,7 @@
 ### Issues
 - **robots.txt was corrupted** — file contained a git diff patch instead of valid directives. Fixed 2026-04-01.
 - **/contact missing from sitemap** — contact page existed but was absent from sitemap.xml. Fixed 2026-04-01.
-- **No `AggregateRating` schema** — Google cannot show star ratings in search results without it on homepage or service pages
+- **`AggregateRating` schema not viable with current setup** — requires first-party reviews collected on the site itself. Google's guidelines explicitly prohibit using third-party review data (e.g. Google Business Profile via Elfsight) to populate this schema; doing so risks a manual penalty. Stars in the Knowledge Panel and Maps come from GBP automatically and need no schema. Organic result star snippets would require building a first-party review collection system.
 - **Booking page at priority 0.6** in sitemap — arguably underweighted for the primary conversion page
 
 ---
@@ -70,7 +70,7 @@
 ## Recommended Next Steps (Priority Order)
 
 1. Add real photos to all service pages (highest conversion impact)
-2. Add `AggregateRating` schema to homepage and service pages
+2. `AggregateRating` schema — skip unless a first-party review system is built; using Elfsight/GBP data for this violates Google's guidelines
 3. Add `/contact` page — already fixed in sitemap, verify page has full content
 4. Consider a simple content page (e.g. powder brows vs microblading) to capture comparison queries
 5. Raise booking page sitemap priority to 0.8
